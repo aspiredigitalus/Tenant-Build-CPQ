@@ -1,10 +1,7 @@
-# Aspire Digital
+# Table of Contents
 
-## Table of Contents
----
 1. Coding Standards
-[Located Here]()
-Holds a comprehensive list of Aspire Digital's coding standards, 
+[Located Here](Education/CodingStandards.md) Holds a comprehensive list of Aspire Digital's coding standards, 
 that should be taught and applied while approving PR's.
 
 2. Documents
