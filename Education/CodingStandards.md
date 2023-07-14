@@ -2,13 +2,13 @@
 ---
 ## Table of Contents
 
-- 1. [Principals of When to Code](#principals)
-- 2. [Global Scripts]()
-- 3. [Custom Templates]()
-- 4. [Custom Actions]()
-- 5. [Tags]()
-- 6. [Linting]()
-- 7. [Pull Requests]()
+1. [Principals of When to Code](#principals)
+2. [Global Scripts]()
+3. [Custom Templates]()
+4. [Custom Actions]()
+5. [Tags]()
+6. [Linting]()
+7. [Pull Requests]()
 
 ## Principals of When to Code (#principals)
 
