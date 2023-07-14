@@ -30,9 +30,8 @@ It's also worth mentioning that Traces can add significant processing time to co
 
 ## Custom Templates
 
-```python
-def my_method:
-    pass
+```html
+<!-- ko template: { name 'NameOfCustomTemplate', data: 'if you need to pass data'} --><!-- /ko -->
 ```
 
 ## Custom Actions
