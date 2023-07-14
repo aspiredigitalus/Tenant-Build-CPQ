@@ -30,6 +30,12 @@ It's also worth mentioning that Traces can add significant processing time to co
 
 ## Custom Templates
 
+'''python
+def my_method:
+    pass
+
+'''
+
 ## Custom Actions
 
 ## Tags
