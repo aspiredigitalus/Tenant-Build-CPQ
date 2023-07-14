@@ -2,7 +2,7 @@
 ---
 ## Table of Contents
 
-1. [Principals of When to Code](#principals)
+1. [Principals of When to Code](#principals-of-when-to-code)
 2. [Global Scripts]()
 3. [Custom Templates]()
 4. [Custom Actions]()
@@ -10,7 +10,7 @@
 6. [Linting]()
 7. [Pull Requests]()
 
-## Principals of When to Code {#principals}
+## Principals of When to Code
 
 Scripting, in general, is less performant than tags. If there's something that can be done with a tag, use a tag. It may be easier to use a script, but tag parsing is orders of magnitude faster and many scripts can slow down load times significantly. When first approaching a project, look at CTX tags, TABLE tags, LIST tags, and other tags in the Formula Builder first to see if there's a tag which can perform the task you're looking for. 
  
