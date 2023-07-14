@@ -30,6 +30,20 @@ It's also worth mentioning that Traces can add significant processing time to co
 
 ## Custom Templates
 
+While Custom Templates are a powerful tool to be leveraged while creating a custom user experience, it is important to remember that CPQ only supports it's Out-Of-The-Box functionality.  When SAP runs their updatates, you could find a template turned off, or erroring because of a change in system fields.  If custom work is the right path, there are some best practices to follow.
+
+### 1. Templating out your code
+
+- When we creat a custom version of a boilerplate CPQ template, we should attempt to leave that custom template as raw as possible.
+- Instead, if we are adding 10+ lines of html, create a new template under, Shared - CustomScripts.
+- Bracket your html and knockout.js in the below script tag.
+```html
+<script type="text/html" id="NameOfCustomTemplate">
+
+    <!-- insert your code here -->
+</script>
+``` 
+
 ```html
 <!-- ko template: { name 'NameOfCustomTemplate', data: 'if you need to pass data'} --><!-- /ko -->
 ```
