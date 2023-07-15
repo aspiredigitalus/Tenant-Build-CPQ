@@ -206,4 +206,4 @@ Anyone reviewing code in PR's (Pull Requests), should ensure that all standards 
 ## 10. Multi Line Code
 
 ### 10.1. Long Strings
-- Instead of using new line characters <span><img src="/Education/media/images/redX.png" width="50" height="50"/></span>
+- Instead of using new line characters <span><img src="/Education/media/images/redX.png" width="20" height="20"/></span>
