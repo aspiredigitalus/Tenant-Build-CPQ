@@ -219,3 +219,17 @@ myVar = '''
     because it comes with a color
     I like.''' 
 ```
+
+## 10.2. Breaking code into multi lines
+
+ - You can break you code to the next line after a '('
+ <span><img src="/Education/media/images/redX.png" width="20" height="20"/></span>
+```Python
+myVar = FirstFunction.SecondFunction("This is a long string")
+```
+<Span><img src="/Education/media/images/greenCheckBox.png" width="20" height="20"/></span>
+```Python
+myVar = FirstFunction.SecondFunction(
+    "This is a long string"
+)
+```
