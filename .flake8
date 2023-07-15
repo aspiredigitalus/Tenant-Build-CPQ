@@ -1,0 +1,5 @@
+[flake8]
+max-line-length = 80
+# E128 - continuation line under-indented for visual indent
+# W504 - Line break after binary operator
+ignore = E128,W504
