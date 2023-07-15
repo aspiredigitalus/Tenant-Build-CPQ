@@ -8,7 +8,8 @@
 4. [Custom Actions](#custom-actions)
 5. [Tags](#tags)
 6. [Linting](#linting)
-7. [Pull Requests](#pull-requests)
+7. [Spell Check](#spell-check)
+8. [Pull Requests](#pull-requests)
 
 ## Principals of When to Code
 
