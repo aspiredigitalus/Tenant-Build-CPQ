@@ -102,13 +102,6 @@ param1 = Param.param1
 param2 = Param.param2
 ```
 
-#### How it's referenced:
-```Python
-## no import required
-
-ScriptExecutor.ExecuteGlobal('GlobalScriptName', {'param1': 1, 'param2': 'second value'})
-```
-
 #### Return data
 
 You can return data out of the script using the Variable 'Return'
@@ -116,6 +109,15 @@ You can return data out of the script using the Variable 'Return'
 
 Return = responseVariable
 ```
+
+#### How it's referenced:
+```Python
+## no import required
+
+ScriptExecutor.ExecuteGlobal('GlobalScriptName', {'param1': 1, 'param2': 'second value'})
+```
+
+
 
 ## 4. Custom Templates
 
@@ -204,4 +206,4 @@ Anyone reviewing code in PR's (Pull Requests), should ensure that all standards 
 ## 10. Multi Line Code
 
 ### 10.1. Long Strings
-- Instead of using new line characters
+- Instead of using new line characters ![redX](/Education/media/images/redX.png)
