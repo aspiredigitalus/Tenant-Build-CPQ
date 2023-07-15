@@ -223,7 +223,7 @@ myVar = '''
 ## 10.2. Breaking code into multi lines
 
  - You can break you code to the next line after a '('  
- <span><img src="/Education/media/images/redX.png" width="20" height="20"/></span>
+<span><img src="/Education/media/images/redX.png" width="20" height="20"/></span>
 ```Python
 myVar = FirstFunction.SecondFunction("This is a long string")
 ```
@@ -232,4 +232,15 @@ myVar = FirstFunction.SecondFunction("This is a long string")
 myVar = FirstFunction.SecondFunction(
     "This is a long string"
 )
+```
+
+- Thou can also break you line up directly before a '.' and adding a '\'
+<span><img src="/Education/media/images/redX.png" width="20" height="20"/></span>
+```Python
+myVar = FirstFunction.SecondFunction("This is a long string")
+```
+<Span><img src="/Education/media/images/greenCheckBox.png" width="20" height="20"/></span>
+```Python
+myVar = FirstFunction \
+    .SecondFunction("This is a long string")
 ```
