@@ -11,7 +11,7 @@
 7. [Spell Check](#spell-check)
 8. [Pull Requests](#pull-requests)
 
-## Principals of When to Code
+## Principals of When to Code [top](#table-of-contents)
 
 Scripting, in general, is less performant than tags. If there's something that can be done with a tag, use a tag. It may be easier to use a script, but tag parsing is orders of magnitude faster and many scripts can slow down load times significantly. When first approaching a project, look at CTX tags, TABLE tags, LIST tags, and other tags in the Formula Builder first to see if there's a tag which can perform the task you're looking for. 
  
