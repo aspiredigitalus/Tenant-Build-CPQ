@@ -212,7 +212,7 @@ Anyone reviewing code in PR's (Pull Requests), should ensure that all standards 
 myVar = "I like my new car\nbecause it comes with a color/I like. "
 ``` 
 - Use a long string
-<img src="/Education/media/images/greenCheckBox.png" width="20" height="20"/>
+<Span><img src="/Education/media/images/greenCheckBox.png" width="20" height="20"/></span>
 ```Python
 myVar = '''
     I like my new car
