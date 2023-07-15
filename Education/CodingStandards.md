@@ -3,13 +3,14 @@
 ## Table of Contents
 
 1. [Principals of When to Code](#principals-of-when-to-code)
-2. [Global Scripts](#global-scripts)
-3. [Custom Templates](#custom-templates)
-4. [Custom Actions](#custom-actions)
-5. [Tags](#tags)
-6. [Linting](#linting)
-7. [Spell Check](#spell-check)
-8. [Pull Requests](#pull-requests)
+2. [Naming Conventions](#naming-conventions)
+3. [Global Scripts](#global-scripts)
+4. [Custom Templates](#custom-templates)
+5. [Custom Actions](#custom-actions)
+6. [Tags](#tags)
+7. [Linting](#linting)
+8. [Spell Check](#spell-check)
+9. [Pull Requests](#pull-requests)
 
 ## Principals of When to Code 
 
@@ -27,11 +28,45 @@ Make sure to watch out for excessive database querying; it's very common that an
  
 It's also worth mentioning that Traces can add significant processing time to code, so after debugging is complete it's best to remove them (or reduce the number if it's still being developed actively).
 
+## Naming Conventions
+
+### Global Scripts
+
+Style: Pascal Case
+
+Example: NameOfScript
+
+### Custom Tables
+
+Style: All Caps and Underscore For Table and Column names.
+
+Example: NAME_OF_TABLE
+
+### JS and Python Functions and Variables
+
+Style: Camel Case
+
+Example: nameOfFunction(), nameOfVariable
+
+### User Types
+
+Style: Capitalize with Spaces.
+
+Example: 'My New User Type'
+
+### Custom Fields, Custom Quote Item Fields, Quote Table, Quote Table Columns
+
+Style: Capitalize and Underscore
+
+Example: Name_Of_Object
+
 ## Global Scripts
 
 ### Modules
-
+The module 
 #### When to use it:
+You want to flip the module switch on a Global Script when all of your functions are completely isolated from each other.  They become Static, not remembering any data passed to them in between calls.
+- Additionally, a module can be used to create an ENum, or static list of assigned variables.  In this case, append the script name with '_ENum'
 
 #### How it's referenced:
 ```Python
@@ -53,7 +88,7 @@ class_instance.yourMethodName()
 ### Script
 
 #### When to use it:
-This method of GlobalScripting is best used when the script serves one single purpose.  While this script may be broken out into multiple functions, those functions would serve the purpose of "private" functions, only called internally.  This script consumes parameters with the 'Param' variable.
+This kind of GlobalScripting is best used when the script serves one single purpose.  While this script may be broken out into multiple functions, those functions would serve the purpose of "private" functions, only called internally.  This script consumes parameters with the 'Param' variable.
 ```Python
 param1 = Param.param1
 param2 = Param.param2
