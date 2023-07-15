@@ -41,30 +41,30 @@ It's also worth mentioning that Traces can add significant processing time to co
 
 ### Custom Tables
 
-Style: All Caps and Underscore For Table and Column names.
+    Style: All Caps and Underscore For Table and Column names.
 
-Example: NAME_OF_TABLE
+    Example: NAME_OF_TABLE
 
 
 ### JS and Python Functions, Methods, and Variables
 
-Style: Camel Case
+    Style: Camel Case
 
-Example: nameOfFunction(), nameOfVariable
+    Example: nameOfFunction(), nameOfVariable
 
 
 ### User Types
 
-Style: Capitalize with Spaces.
+    Style: Capitalize with Spaces.
 
-Example: 'My New User Type'
+    Example: 'My New User Type'
 
 
 ### Custom Fields, Custom Quote Item Fields, Quote Table, Quote Table Columns
 
-Style: Capitalize and Underscore
+    Style: Capitalize and Underscore
 
-Example: Name_Of_Object
+    Example: Name_Of_Object
 
 
 ## Global Scripts
