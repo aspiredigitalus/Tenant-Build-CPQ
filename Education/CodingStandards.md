@@ -69,6 +69,11 @@ This will alow you to reference said template anywhere within the page.  Any add
 - Add a lot of code (all in a row) to a custom :boiler plate" template.  Instead make it its own template and call it.
 
 ## Custom Actions
+Because Custom Actions can contain code/scripts it creates a large amount of locations that a potentially buggy script could be hiding. For this reason, if your code will contain more than 5 lines, it is best to house your code in a global script, and pass it a reference to the quote, as necessary.
+
+```Python
+ScriptExecutor.ExecuteGlobal('GlobalScriptName', context.Quote)
+```
 
 ## Tags
 
