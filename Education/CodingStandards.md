@@ -13,7 +13,7 @@
 9. [Pull Requests](#pull-requests)
 10. [Repository Branching](#repository-branching)
 
-## Principals of When to Code 
+## 1. Principals of When to Code 
 
 Scripting, in general, is less performant than tags. If there's something that can be done with a tag, use a tag. It may be easier to use a script, but tag parsing is orders of magnitude faster and many scripts can slow down load times significantly. When first approaching a project, look at CTX tags, TABLE tags, LIST tags, and other tags in the Formula Builder first to see if there's a tag which can perform the task you're looking for. 
  
@@ -29,7 +29,7 @@ Make sure to watch out for excessive database querying; it's very common that an
  
 It's also worth mentioning that Traces can add significant processing time to code, so after debugging is complete it's best to remove them (or reduce the number if it's still being developed actively).
 
-## Naming Conventions
+## 2. Naming Conventions
 
 
 ### Global Scripts
@@ -67,7 +67,7 @@ It's also worth mentioning that Traces can add significant processing time to co
     Example: Name_Of_Object
 
 
-## Global Scripts
+## 3. 3Global Scripts
 
 ### Modules
 The module 
@@ -108,7 +108,7 @@ param2 = Param.param2
 ScriptExecutor.ExecuteGlobal('GlobalScriptName', {'param1': 1, 'param2': 'second value'})
 ```
 
-## Custom Templates
+## 4. Custom Templates
 
 While Custom Templates are a powerful tool to be leveraged while creating a custom user experience, it is important to remember that CPQ only supports it's Out-Of-The-Box functionality.  When SAP runs their updates, you could find a template turned off, or erroring because of a change in system fields.  If custom work is the right path, there are some best practices to follow.
 
@@ -147,14 +147,14 @@ This will alow you to reference said template anywhere within the page.  Any add
 - Nest the code code for a template directly inside another template.  Instead, make that nested code into its own template and call it as described above.
 - Add a lot of code (all in a row) to a custom :boiler plate" template.  Instead make it its own template and call it.
 
-## Custom Actions
+## 5. Custom Actions
 Because Custom Actions can contain code/scripts it creates a large amount of locations that a potentially buggy script could be hiding. For this reason, if your code will contain more than 5 lines, it is best to house your code in a global script, and pass it a reference to the quote, as necessary.
 
 ```Python
 ScriptExecutor.ExecuteGlobal('GlobalScriptName', context.Quote)
 ```
 
-## Tags
+## 6. Tags
 
 ## Linting
 Having the proper Linters installed ensures that the code base remains clean and consistent.  They will through visual errors, on save, when linting standards are not being followed.
@@ -165,13 +165,13 @@ Please instal both linters:
 
 To activate linters, restart VS code after installation.
 
-## Spell Check
+## 7. Spell Check
 Spelling errors are easy to make, and can lead to hours of debugging.  Please instal the following spell checker extension:
 - Code Spell Checker
 
-## Pull Requests
+## 8. Pull Requests
 
-## Repository Branching
+## 9. Repository Branching
 - Whenever you have a Story, Bug, Task, etc that results in committing code to the repository, you must create a new Branch, and name it after the ticket assigned to you
 - Append onto the branch name with a basic description of the ticket.
 - Example: "Tenant-Build-CPQ-#89_Create-Top-Of-Page-Button"
