@@ -46,16 +46,16 @@ While Custom Templates are a powerful tool to be leveraged while creating a cust
 </script>
 ``` 
 - Then, back in the boilerplate custom tempalte, you insert this at the bottom of the page.
-```HTML
+```knockout.JS
 @Html.PartialCustomTemplate('NameOfCustomTemplate')
 ```
 This will alow you to reference said template anywhere within the page.  Any additional js scripts or <style> tage added in side the custom template will also be loaded into the DOM on page load.
 - You can then call the template using knockout comment notation
 ```knockout.JS
-<!-- ko template: { name 'NameOfCustomTemplate', data: 'if you need to pass data'} --><!-- /ko -->
+<!-- ko template: { name 'NameOfCustomTemplate', data: 'if you need to pass data'} --><!--/ko-->
 ```
 - You can also reference the template inside an element using a data bind.
-```HTML
+```knockout.JS
 <span data-bind="template: { name: 'NameOfCustomTemplate', data: 'if you need to pass data'} "></span>
 ```
 - Now, when future eforts are made to debug code in the Browsers Inspector, the named templates will actually align with the Custom Template file name.
