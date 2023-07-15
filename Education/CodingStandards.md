@@ -141,13 +141,13 @@ This will alow you to reference said template anywhere within the page.  Any add
 - Now, when future efforts are made to debug code in the Browsers Inspector, the named templates will actually align with the Custom Template file name.
 - Additionally, we keep the code base clean and easy to maneuver.
 
-### 4.2. 
-
 ##### We should never:
 - Develop on a global User Type.  Instead, clone it.
 - Develop on a template currently attached to globally used User Types.  Instead, make a copy and attach it to your own 'cloned' User Type 
 - Nest the code code for a template directly inside another template.  Instead, make that nested code into its own template and call it as described above.
 - Add a lot of code (all in a row) to a custom :boiler plate" template.  Instead make it its own template and call it.
+
+### 4.2. 
 
 ## 5. Custom Actions
 Because Custom Actions can contain code/scripts it creates a large amount of locations that a potentially buggy script could be hiding. For this reason, if your code will contain more than 5 lines, it is best to house your code in a global script, and pass it a reference to the quote, as necessary.
@@ -157,6 +157,17 @@ ScriptExecutor.ExecuteGlobal('GlobalScriptName', context.Quote)
 ```
 
 ## 6. Tags
+
+Tags exist as a faster way to access and process data related to quotes and products. They are more limited in terms of functionality but are much more performant. If you have the option to use a tag instead of a script, use a tag.
+
+### 6.1 Special Tags
+There are three special tags: CTX, LIST, and TABLE tags. These three tags have extra features and serve different purposes from other tags:
+- CTX tags consolidate many of the existing tags into a singular place, while also offering many new tags to pull information that previously couldn't be pulled. CTX tags have built in formatting options for strings and numbers and can access contents of a container.
+- TABLE tags query and return the first result in a specified custom table. The tag uses HANA SQL, which is very similar to MySQL or PL/SQL, and queries follow the same format as both of those languages. This works for any custom table, including system custom tables.
+- LIST tags operate the same as a TABLE tag, but will return all values retrieved instead of the first value. The values are divided by a | with no spaces.
+
+### 6.2 Tag Deprecation
+When using Tags, especially in Document Generation, use CTX tag whenever possible to avoid deprecations, inside of the C and Q Tags.  A full list of deprecated tags can be found on the SAP CPQ website.
 
 ## Linting
 Having the proper Linters installed ensures that the code base remains clean and consistent.  They will through visual errors, on save, when linting standards are not being followed.
