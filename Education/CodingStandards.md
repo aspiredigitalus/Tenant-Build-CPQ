@@ -29,6 +29,12 @@ It's also worth mentioning that Traces can add significant processing time to co
 
 ## Global Scripts
 
+### Modules
+
+### Class
+
+### Script
+
 ## Custom Templates
 
 While Custom Templates are a powerful tool to be leveraged while creating a custom user experience, it is important to remember that CPQ only supports it's Out-Of-The-Box functionality.  When SAP runs their updates, you could find a template turned off, or erroring because of a change in system fields.  If custom work is the right path, there are some best practices to follow.
@@ -46,7 +52,7 @@ While Custom Templates are a powerful tool to be leveraged while creating a cust
 
 </script>
 ``` 
-- Then, back in the boilerplate custom tempalte, you insert this at the bottom of the page.
+- Then, back in the boilerplate custom template, you insert this at the bottom of the page.
 ```knockout.JS
 @Html.PartialCustomTemplate('NameOfCustomTemplate')
 ```
