@@ -79,10 +79,10 @@ Please instal both linters:
 - Flake 8
 - Pylint
 
+To activate linters, restart VS code after installation.
+
 ## Spell Check
 Spelling errors are easy to make, and can lead to hours of debugging.  Please instal the following spell checker extension:
 - Code Spell Checker
-
-To activate linters, restart VS code after installation.
 
 ## Pull Requests
