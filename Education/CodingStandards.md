@@ -67,7 +67,7 @@ It's also worth mentioning that Traces can add significant processing time to co
     Example: Name_Of_Object
 
 
-## 3. 3Global Scripts
+## 3. Global Scripts
 
 ### Modules
 The module 
@@ -112,7 +112,7 @@ ScriptExecutor.ExecuteGlobal('GlobalScriptName', {'param1': 1, 'param2': 'second
 
 While Custom Templates are a powerful tool to be leveraged while creating a custom user experience, it is important to remember that CPQ only supports it's Out-Of-The-Box functionality.  When SAP runs their updates, you could find a template turned off, or erroring because of a change in system fields.  If custom work is the right path, there are some best practices to follow.
 
-### 1. Templating out your code
+### 4.1. Templating out your code
 
 ##### We Should
 - When we create a custom version of a boilerplate CPQ template, we should attempt to leave that custom template as raw as possible.
@@ -140,6 +140,8 @@ This will alow you to reference said template anywhere within the page.  Any add
 ```
 - Now, when future efforts are made to debug code in the Browsers Inspector, the named templates will actually align with the Custom Template file name.
 - Additionally, we keep the code base clean and easy to maneuver.
+
+### 4.2. 
 
 ##### We should never:
 - Develop on a global User Type.  Instead, clone it.
