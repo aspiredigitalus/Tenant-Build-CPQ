@@ -34,9 +34,9 @@ It's also worth mentioning that Traces can add significant processing time to co
 
 ### Global Scripts
 
-    >Style: Pascal Case
+    Style: Pascal Case
 
-    >Example: NameOfScript
+    Example: NameOfScript
 
 
 ### Custom Tables
