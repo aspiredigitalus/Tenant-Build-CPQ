@@ -2,8 +2,8 @@
 ---
 ## Table of Contents
 
-1. [Principals of When to Code](#principals-of-when-to-code)
-2. [Naming Conventions](#naming-conventions)
+1. [Principals of When to Code](#1-principals-of-when-to-code)
+2. [Naming Conventions](#2-naming-conventions)
 3. [Global Scripts](#global-scripts)
 4. [Custom Templates](#custom-templates)
 5. [Custom Actions](#custom-actions)
