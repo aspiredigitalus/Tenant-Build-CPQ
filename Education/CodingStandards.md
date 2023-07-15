@@ -11,6 +11,7 @@
 7. [Linting](#linting)
 8. [Spell Check](#spell-check)
 9. [Pull Requests](#pull-requests)
+10. [Repository Branching](#repository-branching)
 
 ## Principals of When to Code 
 
@@ -170,3 +171,7 @@ Spelling errors are easy to make, and can lead to hours of debugging.  Please in
 
 ## Pull Requests
 
+## Repository Branching
+- Whenever you have a Story, Bug, Task, etc that results in committing code to the repository, you must create a new Branch, and name it after the ticket assigned to you
+- Append onto the branch name with a basic description of the ticket.
+- Example: "Tenant-Build-CPQ-#89_Create-Top-Of-Page-Button"
