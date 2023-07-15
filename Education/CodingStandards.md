@@ -12,7 +12,6 @@
 8. [Pull Requests](#pull-requests)
 
 ## Principals of When to Code 
-##### [top](#table-of-contents)
 
 Scripting, in general, is less performant than tags. If there's something that can be done with a tag, use a tag. It may be easier to use a script, but tag parsing is orders of magnitude faster and many scripts can slow down load times significantly. When first approaching a project, look at CTX tags, TABLE tags, LIST tags, and other tags in the Formula Builder first to see if there's a tag which can perform the task you're looking for. 
  
@@ -29,7 +28,6 @@ Make sure to watch out for excessive database querying; it's very common that an
 It's also worth mentioning that Traces can add significant processing time to code, so after debugging is complete it's best to remove them (or reduce the number if it's still being developed actively).
 
 ## Global Scripts
-##### [top](#table-of-contents)
 
 ### Modules
 
@@ -38,7 +36,6 @@ It's also worth mentioning that Traces can add significant processing time to co
 ### Script
 
 ## Custom Templates
-##### [top](#table-of-contents)
 
 While Custom Templates are a powerful tool to be leveraged while creating a custom user experience, it is important to remember that CPQ only supports it's Out-Of-The-Box functionality.  When SAP runs their updates, you could find a template turned off, or erroring because of a change in system fields.  If custom work is the right path, there are some best practices to follow.
 
@@ -85,10 +82,8 @@ ScriptExecutor.ExecuteGlobal('GlobalScriptName', context.Quote)
 ```
 
 ## Tags
-##### [top](#table-of-contents)
 
 ## Linting
-##### [top](#table-of-contents)
 Having the proper Linters installed ensures that the code base remains clean and consistent.  They will through visual errors, on save, when linting standards are not being followed.
 
 Please instal both linters:
@@ -98,9 +93,8 @@ Please instal both linters:
 To activate linters, restart VS code after installation.
 
 ## Spell Check
-##### [top](#table-of-contents)
 Spelling errors are easy to make, and can lead to hours of debugging.  Please instal the following spell checker extension:
 - Code Spell Checker
 
 ## Pull Requests
-##### [top](#table-of-contents)
+
