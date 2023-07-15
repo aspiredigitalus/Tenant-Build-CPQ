@@ -41,8 +41,10 @@ While Custom Templates are a powerful tool to be leveraged while creating a cust
 <script type="text/html" id="NameOfCustomTemplate">
 
     <!-- insert your code here -->
+
 </script>
 ``` 
+- Then, back in the boilerplate
 
 ```html
 <!-- ko template: { name 'NameOfCustomTemplate', data: 'if you need to pass data'} --><!-- /ko -->
