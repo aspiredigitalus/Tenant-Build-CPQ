@@ -30,11 +30,13 @@ It's also worth mentioning that Traces can add significant processing time to co
 
 ## Naming Conventions
 
+
 ### Global Scripts
 
 Style: Pascal Case
 
 Example: NameOfScript
+
 
 ### Custom Tables
 
@@ -42,11 +44,13 @@ Style: All Caps and Underscore For Table and Column names.
 
 Example: NAME_OF_TABLE
 
+
 ### JS and Python Functions and Variables
 
 Style: Camel Case
 
 Example: nameOfFunction(), nameOfVariable
+
 
 ### User Types
 
@@ -54,11 +58,13 @@ Style: Capitalize with Spaces.
 
 Example: 'My New User Type'
 
+
 ### Custom Fields, Custom Quote Item Fields, Quote Table, Quote Table Columns
 
 Style: Capitalize and Underscore
 
 Example: Name_Of_Object
+
 
 ## Global Scripts
 
