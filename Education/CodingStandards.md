@@ -4,15 +4,15 @@
 
 1. [Principals of When to Code](#1-principals-of-when-to-code)
 2. [Naming Conventions](#2-naming-conventions)
-3. [Global Scripts](#global-scripts)
-4. [Custom Templates](#custom-templates)
-5. [Custom Actions](#custom-actions)
-6. [Tags](#tags)
-7. [Linting](#linting)
-8. [Spell Check](#spell-check)
-9. [Pull Requests](#pull-requests)
-10. [Repository Branching](#repository-branching)
-11. [Multi Line Code](#mulit-line-code)
+3. [Global Scripts](#3-global-scripts)
+4. [Custom Templates](#4-custom-templates)
+5. [Custom Actions](#5-custom-actions)
+6. [Tags](#6-tags)
+7. [Linting](#7-linting)
+8. [Spell Check](#8-spell-check)
+9. [Pull Requests](#9-pull-requests)
+10. [Repository Branching](#10-repository-branching)
+11. [Multi Line Code](#11-mulit-line-code)
 
 ## 1. Principals of When to Code 
 
