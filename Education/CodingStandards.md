@@ -31,9 +31,40 @@ It's also worth mentioning that Traces can add significant processing time to co
 
 ### Modules
 
+#### When to use it:
+
+#### How it's referenced:
+```Python
+import MyModuleName as mod
+
+mod.yourFunctionName()
+```
 ### Class
 
+#### When to use it:
+
+#### How it's referenced:
+```Python
+from GlobalScriptName import ClassName
+
+class_instance = ClassName() 
+class_instance.yourMethodName()
+```
 ### Script
+
+#### When to use it:
+This method of GlobalScripting is best used when the script serves one single purpose.  While this script may be broken out into multiple functions, those functions would serve the purpose of "private" functions, only called internally.  This script consumes parameters with the 'Param' variable.
+```Python
+param1 = Param.param1
+param2 = Param.param2
+```
+
+#### How it's referenced:
+```Python
+## no import required
+
+ScriptExecutor.ExecuteGlobal('GlobalScriptName', {'param1': 1, 'param2': 'second value'})
+```
 
 ## Custom Templates
 
