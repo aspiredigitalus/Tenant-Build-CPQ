@@ -1,5 +1,5 @@
 # Coding Standards
----
+==================
 ## Table of Contents
 
 1. [Principals of When to Code](#principals-of-when-to-code)
@@ -46,7 +46,7 @@ Style: All Caps and Underscore For Table and Column names.
 Example: NAME_OF_TABLE
 
 
-### JS and Python Functions and Variables
+### JS and Python Functions, Methods, and Variables
 
 Style: Camel Case
 
