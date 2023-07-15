@@ -34,6 +34,7 @@ While Custom Templates are a powerful tool to be leveraged while creating a cust
 
 ### 1. Templating out your code
 
+##### We Should
 - When we creat a custom version of a boilerplate CPQ template, we should attempt to leave that custom template as raw as possible.
 - Instead, if we are adding 10+ lines of html, create a new template under, Shared - CustomScripts.
 - Bracket your html and knockout.js in the below script tag.
@@ -44,11 +45,27 @@ While Custom Templates are a powerful tool to be leveraged while creating a cust
 
 </script>
 ``` 
-- Then, back in the boilerplate
-
-```html
+- Then, back in the boilerplate custom tempalte, you insert this at the bottom of the page.
+```HTML
+@Html.PartialCustomTemplate('NameOfCustomTemplate')
+```
+This will alow you to reference said template anywhere within the page.  Any additional js scripts or <style> tage added in side the custom template will also be loaded into the DOM on page load.
+- You can then call the template using knockout comment notation
+```HTML
 <!-- ko template: { name 'NameOfCustomTemplate', data: 'if you need to pass data'} --><!-- /ko -->
 ```
+- You can also reference the template inside an element using a data bind.
+```HTML
+<span data-bind="template: { name: 'NameOfCustomTemplate', data: 'if you need to pass data'} "></span>
+```
+- Now, when future eforts are made to debug code in the Browsers Inspector, the named templates will actually align with the Custom Template file name.
+- Additionally, we keep the code base clean and easy to maneuver.
+
+##### We should never:
+- Develop on a global User Type.  Instead, clone it.
+- Develop on a template currently attached to globally used User Types.  Instead, make a copy and attach it to your own 'cloned' User Type 
+- Nest the code code for a template directly inside another template.  Instead, make that nested code into its own template and call it as described above.
+- Add a lot of code (all in a row) to a custom :boiler plate" template.  Instead make it its own template and call it.
 
 ## Custom Actions
 
