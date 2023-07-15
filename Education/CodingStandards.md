@@ -30,12 +30,12 @@ It's also worth mentioning that Traces can add significant processing time to co
 
 ## Custom Templates
 
-While Custom Templates are a powerful tool to be leveraged while creating a custom user experience, it is important to remember that CPQ only supports it's Out-Of-The-Box functionality.  When SAP runs their updatates, you could find a template turned off, or erroring because of a change in system fields.  If custom work is the right path, there are some best practices to follow.
+While Custom Templates are a powerful tool to be leveraged while creating a custom user experience, it is important to remember that CPQ only supports it's Out-Of-The-Box functionality.  When SAP runs their updates, you could find a template turned off, or erroring because of a change in system fields.  If custom work is the right path, there are some best practices to follow.
 
 ### 1. Templating out your code
 
 ##### We Should
-- When we creat a custom version of a boilerplate CPQ template, we should attempt to leave that custom template as raw as possible.
+- When we create a custom version of a boilerplate CPQ template, we should attempt to leave that custom template as raw as possible.
 - Instead, if we are adding 10+ lines of html, create a new template under, Shared - CustomScripts.
 - Bracket your html and knockout.js in the below script tag.
 ```html
@@ -49,7 +49,7 @@ While Custom Templates are a powerful tool to be leveraged while creating a cust
 ```knockout.JS
 @Html.PartialCustomTemplate('NameOfCustomTemplate')
 ```
-This will alow you to reference said template anywhere within the page.  Any additional js scripts or <style> tage added in side the custom template will also be loaded into the DOM on page load.
+This will alow you to reference said template anywhere within the page.  Any additional js scripts or <style> tag added in side the custom template will also be loaded into the DOM on page load.
 - You can then call the template using knockout comment notation
 ```knockout.JS
 <!-- ko template: { name 'NameOfCustomTemplate', data: 'if you need to pass data'} --><!-- /ko -->
@@ -58,7 +58,7 @@ This will alow you to reference said template anywhere within the page.  Any add
 ```knockout.JS
 <span data-bind="template: { name: 'NameOfCustomTemplate', data: 'if you need to pass data'} "></span>
 ```
-- Now, when future eforts are made to debug code in the Browsers Inspector, the named templates will actually align with the Custom Template file name.
+- Now, when future efforts are made to debug code in the Browsers Inspector, the named templates will actually align with the Custom Template file name.
 - Additionally, we keep the code base clean and easy to maneuver.
 
 ##### We should never:
@@ -78,6 +78,10 @@ Please instal both linters:
 - Flake 8
 - Pylint
 
-To activate linters
+## Spell Check
+Spelling errors are easy to make, and can lead to hours of debugging.  Please instal the following spell checker extension:
+- Code Spell Checker
+
+To activate linters, restart VS code after installation.
 
 ## Pull Requests
