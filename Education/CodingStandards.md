@@ -32,35 +32,35 @@ It's also worth mentioning that Traces can add significant processing time to co
 ## 2. Naming Conventions
 
 
-### Global Scripts
+### 2.1. Global Scripts
 
     Style: Pascal Case
 
     Example: NameOfScript
 
 
-### Custom Tables
+### 2.2. Custom Tables
 
     Style: All Caps and Underscore For Table and Column names.
 
     Example: NAME_OF_TABLE
 
 
-### JS and Python Functions, Methods, and Variables
+### 2.3. JS and Python Functions, Methods, and Variables
 
     Style: Camel Case
 
     Example: nameOfFunction(), nameOfVariable
 
 
-### User Types
+### 2.4. User Types
 
     Style: Capitalize with Spaces.
 
     Example: 'My New User Type'
 
 
-### Custom Fields, Custom Quote Item Fields, Quote Table, Quote Table Columns
+### 2.5. Custom Fields, Custom Quote Item Fields, Quote Table, Quote Table Columns
 
     Style: Capitalize and Underscore
 
@@ -69,7 +69,7 @@ It's also worth mentioning that Traces can add significant processing time to co
 
 ## 3. Global Scripts
 
-### Modules
+### 3.1. Modules
 The module 
 #### When to use it:
 You want to flip the module switch on a Global Script when all of your functions are completely isolated from each other.  They become Static, not remembering any data passed to them in between calls.
@@ -81,7 +81,7 @@ import MyModuleName as mod
 
 mod.yourFunctionName()
 ```
-### Class
+### 3.2. Class
 
 #### When to use it:
 
@@ -92,7 +92,7 @@ from GlobalScriptName import ClassName
 class_instance = ClassName() 
 class_instance.yourMethodName()
 ```
-### Script
+### 3.3. Script
 
 #### When to use it:
 This kind of GlobalScripting is best used when the script serves one single purpose.  While this script may be broken out into multiple functions, those functions would serve the purpose of "private" functions, only called internally.  This script consumes parameters with the 'Param' variable.
