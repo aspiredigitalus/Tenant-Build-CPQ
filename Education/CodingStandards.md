@@ -1,5 +1,5 @@
 # Coding Standards
-===
+---
 ## Table of Contents
 
 1. [Principals of When to Code](#principals-of-when-to-code)
