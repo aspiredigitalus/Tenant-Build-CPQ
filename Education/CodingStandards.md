@@ -12,6 +12,7 @@
 8. [Spell Check](#spell-check)
 9. [Pull Requests](#pull-requests)
 10. [Repository Branching](#repository-branching)
+11. [Multi Line Code](#mulit-line-code)
 
 ## 1. Principals of When to Code 
 
@@ -108,6 +109,14 @@ param2 = Param.param2
 ScriptExecutor.ExecuteGlobal('GlobalScriptName', {'param1': 1, 'param2': 'second value'})
 ```
 
+#### Return data
+
+You can return data out of the script using the Variable 'Return'
+```Python
+
+Return = responseVariable
+```
+
 ## 4. Custom Templates
 
 While Custom Templates are a powerful tool to be leveraged while creating a custom user experience, it is important to remember that CPQ only supports it's Out-Of-The-Box functionality.  When SAP runs their updates, you could find a template turned off, or erroring because of a change in system fields.  If custom work is the right path, there are some best practices to follow.
@@ -149,6 +158,8 @@ This will alow you to reference said template anywhere within the page.  Any add
 
 ### 4.2. 
 
+### 4.3. 
+
 ## 5. Custom Actions
 Because Custom Actions can contain code/scripts it creates a large amount of locations that a potentially buggy script could be hiding. For this reason, if your code will contain more than 5 lines, it is best to house your code in a global script, and pass it a reference to the quote, as necessary.
 
@@ -183,8 +194,14 @@ Spelling errors are easy to make, and can lead to hours of debugging.  Please in
 - Code Spell Checker
 
 ## 8. Pull Requests
+Anyone reviewing code in PR's (Pull Requests), should ensure that all standards were abided by before approving the PR.
 
 ## 9. Repository Branching
 - Whenever you have a Story, Bug, Task, etc that results in committing code to the repository, you must create a new Branch, and name it after the ticket assigned to you
 - Append onto the branch name with a basic description of the ticket.
 - Example: "Tenant-Build-CPQ-#89_Create-Top-Of-Page-Button"
+
+## 10. Multi Line Code
+
+### 10.1. Long Strings
+- Instead of using new line characters
