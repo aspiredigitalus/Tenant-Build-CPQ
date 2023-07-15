@@ -222,6 +222,8 @@ myVar = '''
 
 ## 10.2. Breaking code into multi lines
 
+Out linting standards constrain line length to 80 Characters or less, here are some ways to maintain this.
+
  - You can break you code to the next line after a '('  
 
 <span><img src="/Education/media/images/redX.png" width="20" height="20"/></span>
