@@ -51,7 +51,7 @@ While Custom Templates are a powerful tool to be leveraged while creating a cust
 ```
 This will alow you to reference said template anywhere within the page.  Any additional js scripts or <style> tage added in side the custom template will also be loaded into the DOM on page load.
 - You can then call the template using knockout comment notation
-```HTML
+```knockout.JS
 <!-- ko template: { name 'NameOfCustomTemplate', data: 'if you need to pass data'} --><!-- /ko -->
 ```
 - You can also reference the template inside an element using a data bind.
