@@ -4,13 +4,12 @@
 Holds a comprehensive list of Aspire Digital's coding standards, 
 that should be taught, used and applied while approving PR's.
 
-### 2. Documents
-[Located Here]()
+### 2. [Development Standards](Education/DevelopmentStandards.md)
 
-### 3. Global Scripts
-[Located Here]()
+### 2. [Documents](Documents/Documents.md)
 
-### 4. Dictionaries
-[Located Here]()
+### 3. [Global Scripts](Code/GlobalScripts/GlobalScripts.md)
 
-### 5. 
+### 4. [Dictionaries](Code/Dictionaries/Dictionaries.md)
+
+### 5. [Custom Tables](Code/CustomTables/CustomTables.md)
