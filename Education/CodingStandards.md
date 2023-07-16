@@ -12,7 +12,7 @@
 8. [Spell Check](#8-spell-check)
 9. [Pull Requests](#9-pull-requests)
 10. [Repository Branching](#10-repository-branching)
-11. [Multi Line Code](#11-mulit-line-code)
+11. [Multi Line Code](#11-multi-line-code)
 
 ## 1. Principals of When to Code 
 
