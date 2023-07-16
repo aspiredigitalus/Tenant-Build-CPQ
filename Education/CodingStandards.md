@@ -72,7 +72,7 @@ It's also worth mentioning that Traces can add significant processing time to co
 
 - Scripts should start with this header
 ```Python
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #   
 #   Name:
 #   Type: Module/Class/Script/API/CustomAction
@@ -80,7 +80,7 @@ It's also worth mentioning that Traces can add significant processing time to co
 #   Copyright: Aspire Digital
 #   Purpose:
 #
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ```
 - Methods/Functions should start with this header
 ```Python
