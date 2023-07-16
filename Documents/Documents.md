@@ -1,1 +1,0 @@
-[AD Diagram](Tenant-Build-CPQ/blob/Tenant-Build-CPQ%2314_CodingStandards/Documents/Requirements_Gathering/AD_Diagram.docx)
