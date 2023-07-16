@@ -13,3 +13,5 @@ that should be taught, used and applied while approving PR's.
 ### 4. [Dictionaries](Code/Dictionaries/Dictionaries.md)
 
 ### 5. [Custom Tables](Code/CustomTables/CustomTables.md)
+
+### 6. [Deploying Code](Deploy/Deploy.md)
