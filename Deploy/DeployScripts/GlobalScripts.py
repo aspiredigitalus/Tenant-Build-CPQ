@@ -2,6 +2,7 @@
 #
 #   Name: UserTypes
 #   Type: Class
+#   Author: David Mehoves
 #   Copyright: Aspire Digital
 #   Purpose: Child Class of DeployScriptInterface, syncs repository
 #   and tenant GlobalScripts, with optional delete.

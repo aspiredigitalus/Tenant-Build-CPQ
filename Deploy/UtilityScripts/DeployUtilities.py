@@ -2,6 +2,7 @@
 #
 #   Name: DeployUtilities
 #   Type: Script
+#   Author: David Mehoves
 #   Copyright: Aspire Digital
 #   Purpose: Collection of Static Methods that contain
 #   useful and repeated code.

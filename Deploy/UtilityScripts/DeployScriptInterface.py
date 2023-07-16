@@ -2,6 +2,7 @@
 #
 #   Name: DeployScriptInterface
 #   Type: Interface
+#   Author: David Mehoves
 #   Copyright: Aspire Digital
 #   Purpose: An interface to ensure standards od Deploy Scripts
 #

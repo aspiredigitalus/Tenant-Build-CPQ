@@ -2,6 +2,7 @@
 #
 #   Name: Deploy
 #   Type: Script
+#   Author: David Mehoves
 #   Copyright: Aspire Digital
 #   Purpose: Script to deploy repository to tenant
 #
