@@ -1,1 +1,1 @@
-[AD Diagram]('Documents/Requirment Gathering/AD_Diagram.docx')
+[AD Diagram](Documents/Requirements_Gathering/AD_Diagram.docx)
