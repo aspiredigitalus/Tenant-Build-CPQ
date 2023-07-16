@@ -70,6 +70,26 @@ It's also worth mentioning that Traces can add significant processing time to co
 
 ## 3. Global Scripts
 
+- Scripts should start with this header
+```Python
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#   
+#   Name:
+#   Type: Module/Class/Script/API/CustomAction
+#   Copyright: Aspire Digital
+#   Purpose:
+#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+```
+- Methods/Functions should start with this header
+```Python
+"""
+Description: 
+Parameters: 
+    - (type):
+    - (type):
+"""
+```
 ### 3.1. Modules
 The module 
 #### When to use it:
