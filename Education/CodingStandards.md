@@ -202,7 +202,7 @@ There are three special tags: CTX, LIST, and TABLE tags. These three tags have e
 ### 6.2. Tag Deprecation
 When using Tags, especially in Document Generation, use CTX tag whenever possible to avoid deprecations, inside of the C and Q Tags.  A full list of deprecated tags can be found on the SAP CPQ website.
 
-## Linting
+## 7. Linting
 Having the proper Linters installed ensures that the code base remains clean and consistent.  They will through visual errors, on save, when linting standards are not being followed.
 
 Please instal both linters:
@@ -211,21 +211,21 @@ Please instal both linters:
 
 To activate linters, restart VS code after installation.
 
-## 7. Spell Check
+## 8. Spell Check
 Spelling errors are easy to make, and can lead to hours of debugging.  Please instal the following spell checker extension:
 - Code Spell Checker
 
-## 8. Pull Requests
+## 9. Pull Requests
 Anyone reviewing code in PR's (Pull Requests), should ensure that all standards were abided by before approving the PR.
 
-## 9. Repository Branching
+## 10. Repository Branching
 - Whenever you have a Story, Bug, Task, etc that results in committing code to the repository, you must create a new Branch, and name it after the ticket assigned to you
 - Append onto the branch name with a basic description of the ticket.
 - Example: "Tenant-Build-CPQ-#89_Create-Top-Of-Page-Button"
 
-## 10. Multi Line Code
+## 11. Multi Line Code
 
-### 10.1. Long Strings
+### 11.1. Long Strings
 - Instead of using new line characters  
 
 <span><img src="/Education/media/images/redX.png" width="20" height="20"/></span>
@@ -242,7 +242,7 @@ myVar = '''
     I like.''' 
 ```
 
-## 10.2. Breaking code into multi lines
+## 11.2. Breaking code into multi lines
 
 Out linting standards constrain line length to 80 Characters or less, here are some ways to maintain this.
 
