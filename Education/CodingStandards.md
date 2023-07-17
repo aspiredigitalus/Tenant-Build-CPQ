@@ -200,6 +200,7 @@ Because Custom Actions can contain code/scripts it creates a large amount of loc
 ```Python
 ScriptExecutor.ExecuteGlobal('GlobalScriptName', context.Quote)
 ```
+[More Global Script Info](#3-global-scripts)
 
 ## 6. Products
 Because Products can contain code/scripts it creates a large amount of locations that a potentially buggy script could be hiding. For this reason, if your code will contain more than a single line, it is best to house your code in a global script, and pass it a reference to the Product, as necessary.
@@ -207,6 +208,8 @@ Because Products can contain code/scripts it creates a large amount of locations
 ```Python
 ScriptExecutor.ExecuteGlobal('GlobalScriptName', Product)
 ```
+[More Global Script Info](#3-global-scripts)
+
 ## 7. Tags
 
 Tags exist as a faster way to access and process data related to quotes and products. They are more limited in terms of functionality but are much more performant. If you have the option to use a tag instead of a script, use a tag.
@@ -223,18 +226,20 @@ When using Tags, especially in Document Generation, use CTX tag whenever possibl
 ## 8. Linting
 Having the proper Linters installed ensures that the code base remains clean and consistent.  They will through visual errors, on save, when linting standards are not being followed.
 
-Please instal both linters:
+Please install both linters:
 - Flake 8
 - Pylint
 
 To activate linters, restart VS code after installation.
 
 ## 9. Spell Check
-Spelling errors are easy to make, and can lead to hours of debugging.  Please instal the following spell checker extension:
+Spelling errors are easy to make, and can lead to hours of debugging.  Please install the following spell checker extension:
 - Code Spell Checker
 
 ## 10. Pull Requests
-Anyone reviewing code in PR's (Pull Requests), should ensure that all standards were abided by before approving the PR.
+- Anyone reviewing code in PR's (Pull Requests), should ensure that all standards were abided by before approving the PR.
+
+- Once a pull request has been merged, make sure and close any accidental duplicate pull requests. 
 
 ## 11. Repository Branching
 - Whenever you have a Story, Bug, Task, etc that results in committing code to the repository, you must create a new Branch, and name it after the ticket assigned to you
@@ -292,8 +297,13 @@ myVar = FirstFunction \
 ## 13. Hard Coding
 This is a non-starter, full stop.
 
-- If we need to access referenced data, you have two options:
-    - Reference a Global Script (Module) used as a Enum
-    - Better Option is to Store this Data in a custom table.
+- If we need to access data within our scripts, you have two options:  
 
-- Do not assign hard coded number or strings straight into your code. Instead assign those numbers/string to a variable at the top of the function/method or class.
+    #### 1. Reference a Global Script Module used as an Enum. (This is a Module that contains only variables.)
+    ```python
+    firstVariable = "some value"
+    secondVariable = "some other value"
+    ```  
+    #### 2. Better Option is to Store this Data in a custom table.
+
+- Do not assign hard coded numbers or strings straight into your code. Instead assign those numbers/string to a variable at the top of the function/method or class.
