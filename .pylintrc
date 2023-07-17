@@ -1,0 +1,18 @@
+[BASIC]
+# Regular expression which should only match correct module names
+module-rgx=(([a-z][a-z0-9]*)|([A-Z][a-zA-Z0-9]+))$
+# Regular expression which should only match correct class names
+class-rgx=[A-Z][a-zA-Z0-9]+$
+# Regular expression which should only match correct function names
+function-rgx=[a-z_][a-zA-Z0-9]*$
+# Regular expression which should only match correct method names
+method-rgx=[a-z_][a-zA-Z0-9]*$
+# Regular expression which should only match correct argument names
+argument-rgx=[a-z][a-zA-Z0-9]*$
+# Regular expression which should only match correct variable names
+variable-rgx=[a-z][a-zA-Z0-9]*$
+[FORMAT]
+max-line-length=80
+disable=consider-using-f-string, consider-using-enumerate
+# Since we have our own function/file naming convention
+disable=invalid-name
