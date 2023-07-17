@@ -14,6 +14,7 @@
 10. [Pull Requests](#10-pull-requests)
 11. [Repository Branching](#11-repository-branching)
 12. [Multi Line Code](#12-multi-line-code)
+13. [Hard Coding](#13-hard-coding)
 
 ## 1. Principals of When to Code 
 
@@ -259,7 +260,7 @@ myVar = '''
     I like.''' 
 ```
 
-## 12.2. Breaking code into multi lines
+### 12.2. Breaking code into multi lines
 
 Out linting standards constrain line length to 80 Characters or less, here are some ways to maintain this.
 
@@ -287,3 +288,12 @@ myVar = FirstFunction.SecondFunction("This is a long string")
 myVar = FirstFunction \
     .SecondFunction("This is a long string")
 ```
+
+## 13. Hard Coding
+This is a non-starter, full stop.
+
+- If we need to access referenced data, you have two options:
+    - Reference a Global Script (Module) used as a Enum
+    - Better Option is to Store this Data in a custom table.
+
+- Do not assign hard coded number or strings straight into your code. Instead assign those numbers/string to a variable at the top of the function/method or class.
