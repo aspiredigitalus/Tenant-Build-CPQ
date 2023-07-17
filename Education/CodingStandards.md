@@ -49,16 +49,15 @@ It's also worth mentioning that Traces can add significant processing time to co
 
 
 ### 2.3. JS and Python Functions, Methods, and Variables
-
-    Make sure to name all variables/functions/methods after their purpose and not arbitrary letters and numbers.  If functions have a paired purpose, make sure that this is represented in the naming:
-    ```js
-    function createInfoPopover(){
-        // some code
-    }
-    function cancelInfoPopover(){
-        // some code
-    }
-    ```
+Make sure to name all variables/functions/methods after their purpose and not arbitrary letters and numbers.  If functions have a paired purpose, make sure that this is represented in the naming:
+```js
+function createInfoPopover(){
+    // some code
+}
+function cancelInfoPopover(){
+    // some code
+}
+```
 
     Style: Camel Case
 
