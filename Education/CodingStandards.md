@@ -221,7 +221,7 @@ There are three special tags: CTX, LIST, and TABLE tags. These three tags have e
 - LIST tags operate the same as a TABLE tag, but will return all values retrieved instead of the first value. The values are divided by a | with no spaces.
 
 ### 7.2. Tag Deprecation
-When using Tags, especially in Document Generation, use CTX tag whenever possible to avoid deprecations, inside of the C and Q Tags.  A full list of deprecated tags can be found on the SAP CPQ website.
+When using Tags, especially in Document Generation, use CTX tag whenever possible to avoid deprecations, inside of the C and Q Tags.  A full list of deprecated tags can be found on the SAP CPQ website.  
     ```VB
     <<Q_TAG(<*CTX( Quote.Customer(BillTo).Company)*>)>>
     <<C_TAG(<*CTX(Quote.CurrentItem.Description)*>)>>
