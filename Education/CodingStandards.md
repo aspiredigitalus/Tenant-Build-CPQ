@@ -7,12 +7,13 @@
 3. [Global Scripts](#3-global-scripts)
 4. [Custom Templates](#4-custom-templates)
 5. [Custom Actions](#5-custom-actions)
-6. [Tags](#6-tags)
-7. [Linting](#7-linting)
-8. [Spell Check](#8-spell-check)
-9. [Pull Requests](#9-pull-requests)
-10. [Repository Branching](#10-repository-branching)
-11. [Multi Line Code](#11-multi-line-code)
+6. [Products](#6-Products)
+7. [Tags](#7-tags)
+8. [Linting](#8-linting)
+9. [Spell Check](#9-spell-check)
+10. [Pull Requests](#10-pull-requests)
+11. [Repository Branching](#11-repository-branching)
+12. [Multi Line Code](#12-multi-line-code)
 
 ## 1. Principals of When to Code 
 
@@ -48,6 +49,16 @@ It's also worth mentioning that Traces can add significant processing time to co
 
 
 ### 2.3. JS and Python Functions, Methods, and Variables
+
+    Make sure to name all variables/functions/methods after their purpose and not arbitrary letters and numbers.  If functions have a paired purpose, make sure that this is represented in the naming:
+    ```js
+    function createInfoPopover(){
+        // some code
+    }
+    function cancelInfoPopover(){
+        // some code
+    }
+    ```
 
     Style: Camel Case
 
@@ -184,26 +195,32 @@ This will alow you to reference said template anywhere within the page.  Any add
 ### 4.3. 
 
 ## 5. Custom Actions
-Because Custom Actions can contain code/scripts it creates a large amount of locations that a potentially buggy script could be hiding. For this reason, if your code will contain more than 5 lines, it is best to house your code in a global script, and pass it a reference to the quote, as necessary.
+Because Custom Actions can contain code/scripts it creates a large amount of locations that a potentially buggy script could be hiding. For this reason, if your code will contain more than a single line, it is best to house your code in a global script, and pass it a reference to the quote, as necessary.
 
 ```Python
 ScriptExecutor.ExecuteGlobal('GlobalScriptName', context.Quote)
 ```
 
-## 6. Tags
+## 6. Products
+Because Products can contain code/scripts it creates a large amount of locations that a potentially buggy script could be hiding. For this reason, if your code will contain more than a single line, it is best to house your code in a global script, and pass it a reference to the Product, as necessary.
+
+```Python
+ScriptExecutor.ExecuteGlobal('GlobalScriptName', Product)
+```
+## 7. Tags
 
 Tags exist as a faster way to access and process data related to quotes and products. They are more limited in terms of functionality but are much more performant. If you have the option to use a tag instead of a script, use a tag.
 
-### 6.1. Special Tags
+### 7.1. Special Tags
 There are three special tags: CTX, LIST, and TABLE tags. These three tags have extra features and serve different purposes from other tags:
 - CTX tags consolidate many of the existing tags into a singular place, while also offering many new tags to pull information that previously couldn't be pulled. CTX tags have built in formatting options for strings and numbers and can access contents of a container.
 - TABLE tags query and return the first result in a specified custom table. The tag uses HANA SQL, which is very similar to MySQL or PL/SQL, and queries follow the same format as both of those languages. This works for any custom table, including system custom tables.
 - LIST tags operate the same as a TABLE tag, but will return all values retrieved instead of the first value. The values are divided by a | with no spaces.
 
-### 6.2. Tag Deprecation
+### 7.2. Tag Deprecation
 When using Tags, especially in Document Generation, use CTX tag whenever possible to avoid deprecations, inside of the C and Q Tags.  A full list of deprecated tags can be found on the SAP CPQ website.
 
-## 7. Linting
+## 8. Linting
 Having the proper Linters installed ensures that the code base remains clean and consistent.  They will through visual errors, on save, when linting standards are not being followed.
 
 Please instal both linters:
@@ -212,21 +229,21 @@ Please instal both linters:
 
 To activate linters, restart VS code after installation.
 
-## 8. Spell Check
+## 9. Spell Check
 Spelling errors are easy to make, and can lead to hours of debugging.  Please instal the following spell checker extension:
 - Code Spell Checker
 
-## 9. Pull Requests
+## 10. Pull Requests
 Anyone reviewing code in PR's (Pull Requests), should ensure that all standards were abided by before approving the PR.
 
-## 10. Repository Branching
+## 11. Repository Branching
 - Whenever you have a Story, Bug, Task, etc that results in committing code to the repository, you must create a new Branch, and name it after the ticket assigned to you
 - Append onto the branch name with a basic description of the ticket.
 - Example: "Tenant-Build-CPQ-#89_Create-Top-Of-Page-Button"
 
-## 11. Multi Line Code
+## 12. Multi Line Code
 
-### 11.1. Long Strings
+### 12.1. Long Strings
 - Instead of using new line characters  
 
 <span><img src="/Education/media/images/redX.png" width="20" height="20"/></span>
@@ -243,7 +260,7 @@ myVar = '''
     I like.''' 
 ```
 
-## 11.2. Breaking code into multi lines
+## 12.2. Breaking code into multi lines
 
 Out linting standards constrain line length to 80 Characters or less, here are some ways to maintain this.
 
