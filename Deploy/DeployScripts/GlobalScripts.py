@@ -20,4 +20,5 @@ class GlobalScripts(DeployScriptInterface):
         syncs CPQ tenant to repository.
         Parameters: None
         """
+        
         print("Deploying Global Scripts")
