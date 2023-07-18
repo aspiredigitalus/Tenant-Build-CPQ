@@ -319,6 +319,11 @@ The purpose of Logs lies in the ability to track our process through the code, s
 
 ### StandardLogging
 
+#### Imported:
+```python
+from StandardLogging import StandardLogging as log
+```
+#### Definitions:
 ```python
 
 @staticmethod
