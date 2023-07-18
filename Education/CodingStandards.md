@@ -380,7 +380,7 @@ def quote(script_name, quote, msg=""):
     ```python
     x = 1
     if x is not 2:
-    log.error('ScriptName', 'Invalid x value')
+        log.error('ScriptName', 'Invalid x value')
     ``` 
 - exception() should be used to handle exceptions as such:
     ```python
