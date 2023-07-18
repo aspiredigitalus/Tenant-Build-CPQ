@@ -1,0 +1,14 @@
+{
+    "scriptDefinition": {
+        "name": "StandardLogging",
+        "description": "Standard Logging Class for Error, API calls, Custom Tables, and Quotes",
+        "active": true,
+        "startDate": "",
+        "endDate": "",
+        "script": "Code/GlobalScripts/StandardLogging_cpq.py",
+        "isModule": true,
+        "systemId": "StandardLogging_cpq"
+    },
+    "forceProxyGeneration": false,
+    "events": []
+}
