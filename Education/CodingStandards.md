@@ -15,6 +15,7 @@
 11. [Repository Branching](#11-repository-branching)
 12. [Multi Line Code](#12-multi-line-code)
 13. [Hard Coding](#13-hard-coding)
+14. [Logging Your Code](#14-logging-your-code)
 
 ## 1. Principals of When to Code 
 
@@ -311,3 +312,81 @@ This is a non-starter, full stop.
     #### 2. Better Option is to Store this Data in a custom table.
 
 - Do not assign hard coded numbers or strings straight into your code. Instead assign those numbers/string to a variable at the top of the function/method or class.
+
+## 14. Logging Your Code
+
+The purpose of Logs lies in the ability to track our process through the code, success or failure.  To do this we have instituted a StandardLogging class This is the standard for logging in the tenant. 
+
+### StandardLogging
+
+```python
+
+@staticmethod
+def start(script_name, msg=""):
+    """
+    To be called at the enterance to a module or class
+    Args:
+        script_name (str): name of script being called
+        explanation (str): purpose of script
+    """
+
+@staticmethod
+def info(script_name, msg):
+    """
+    Displays a formatted message to the logs
+    Args:
+        message (str): Custom message to display
+    """
+
+@staticmethod
+def error(script_name, msg=""):
+    '''
+    To be called when there is a error
+    case in the code.
+    Args:
+        customMessage (str): Display more info to the user
+    '''
+
+@staticmethod
+def exception(script_name, msg=""):
+    '''
+    Method to be caleld directly under the
+    'except' in a try/except block.
+    Args:
+        customMessage (str): Display more info to the user
+    '''
+
+@staticmethod
+def table(script_name, query, response=""):
+    '''
+    Method to be called inside a script whenever a table is accessed.
+    Args:
+        query (str): query string
+        response (str): response from the query
+    '''
+
+@staticmethod
+def quote(script_name, quote, msg=""):
+    '''
+    Method to be called at the top of any
+    script that adjusts or accesses a quote.
+    Args:
+        quote (context.Quote): reference to the quote
+        msg (str): to include what is accessed / modified
+    '''
+```
+#### Note: 
+- error() should be used when there is a logical error, such as:
+    ```python
+    x = 1
+    if x is not 2:
+    log.error('ScriptName', 'Invalid x value')
+    ``` 
+- exception() should be used to handle exceptions as such:
+    ```python
+    try:
+        raise Exception()
+    except Exception:
+        log.exception('ScriptName', 'Exception raised while trying to ...')
+    ```
+- table() should be called at the end of a table call.  Convert return to string and log.  There may be certain times where the return value is too large by necessity.  In this case, log 'Return Value Bypassed' 
