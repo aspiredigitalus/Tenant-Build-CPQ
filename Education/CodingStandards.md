@@ -26,7 +26,7 @@ If custom logic is required and a tag won't suffice, try to cut out as many unne
 - zip
 - cycle
 - itertools
-- List comprehensions
+- List comprehensions  
 These will all help with removing unnecessary looping and help make code more performant.
  
 Make sure to watch out for excessive database querying; it's very common that any SQL statements done inside of a loop can also be done once outside of a loop using something like SqlHelper.GetList instead of SqlHelper.GetFirst.
@@ -104,7 +104,7 @@ Parameters:
 """
 ```
 ### 3.1. Modules
-The module 
+
 #### When to use it:
 You want to flip the module switch on a Global Script when all of your functions are completely isolated from each other.  They become Static, not remembering any data passed to them in between calls.
 - Additionally, a module can be used to create an ENum, or static list of assigned variables.  In this case, append the script name with '_ENum'
@@ -196,7 +196,7 @@ This will alow you to reference said template anywhere within the page.  Any add
 ### 4.3. 
 
 ## 5. Custom Actions
-Because Custom Actions can contain code/scripts it creates a large amount of locations that a potentially buggy script could be hiding. For this reason, if your code will contain more than a single line, it is best to house your code in a global script, and pass it a reference to the quote, as necessary.
+Because Custom Actions can contain code/scripts, it creates a large amount of locations where a potentially buggy script could be hiding. For this reason, if your code will contain more than a single line, it is best to house your code in a global script, and pass it a reference to the quote, as necessary.
 
 ```Python
 ScriptExecutor.ExecuteGlobal('GlobalScriptName', context.Quote)
@@ -204,7 +204,7 @@ ScriptExecutor.ExecuteGlobal('GlobalScriptName', context.Quote)
 [More Global Script Info](#3-global-scripts)
 
 ## 6. Products
-Because Products can contain code/scripts it creates a large amount of locations that a potentially buggy script could be hiding. For this reason, if your code will contain more than a single line, it is best to house your code in a global script, and pass it a reference to the Product, as necessary.
+Because Products can contain code/scripts, it creates a large amount of locations where a potentially buggy script could be hiding. For this reason, if your code will contain more than a single line, it is best to house your code in a global script, and pass it a reference to the Product, as necessary.
 
 ```Python
 ScriptExecutor.ExecuteGlobal('GlobalScriptName', Product)
@@ -329,7 +329,7 @@ from StandardLogging import StandardLogging as log
 @staticmethod
 def start(script_name, msg=""):
     """
-    To be called at the enterance to a module or class
+    To be called at the entrance to a module or class
     Args:
         script_name (str): name of script being called
         explanation (str): purpose of script
@@ -355,7 +355,7 @@ def error(script_name, msg=""):
 @staticmethod
 def exception(script_name, msg=""):
     '''
-    Method to be caleld directly under the
+    Method to be called directly under the
     'except' in a try/except block.
     Args:
         customMessage (str): Display more info to the user
