@@ -11,6 +11,8 @@ from UtilityScripts.DeployUtilities import DeployUtilities as util
 from DeployScripts.GlobalScripts import GlobalScripts
 from DeployScripts.CustomTemplates import CustomTemplates
 from DeployScripts.UserTypes import UserTypes
+from UtilityScripts.CpqApiHelper import CpqApiHelper
+from decouple import config
 
 
 def deploy():
@@ -20,11 +22,17 @@ def deploy():
     via API calls.
     Parameters: None
     """
+    
+    api = CpqApiHelper(
+        config('Cpq_Username'),
+        config('Cpq_Password'),
+        config('Cpq_Host')
+    )
     deployScripts = populateDeployScripts()
 
     for script in deployScripts:
         try:
-            script().run()
+            script(api).run()
         except Exception as e:
             print("Exception: " + str(e))
 

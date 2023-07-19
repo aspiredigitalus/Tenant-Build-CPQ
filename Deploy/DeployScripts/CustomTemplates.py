@@ -10,9 +10,13 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 from UtilityScripts.DeployScriptInterface import DeployScriptInterface
+from UtilityScripts.CpqApiHelper import CpqApiHelper
 
 
 class CustomTemplates(DeployScriptInterface):
+
+    def __init__(self, api: CpqApiHelper):
+        self.api = api
 
     def run(self):
         """
