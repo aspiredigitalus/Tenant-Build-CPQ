@@ -7,12 +7,15 @@
 3. [Global Scripts](#3-global-scripts)
 4. [Custom Templates](#4-custom-templates)
 5. [Custom Actions](#5-custom-actions)
-6. [Tags](#6-tags)
-7. [Linting](#7-linting)
-8. [Spell Check](#8-spell-check)
-9. [Pull Requests](#9-pull-requests)
-10. [Repository Branching](#10-repository-branching)
-11. [Multi Line Code](#11-multi-line-code)
+6. [Products](#6-Products)
+7. [Tags](#7-tags)
+8. [Linting](#8-linting)
+9. [Spell Check](#9-spell-check)
+10. [Pull Requests](#10-pull-requests)
+11. [Repository Branching](#11-repository-branching)
+12. [Multi Line Code](#12-multi-line-code)
+13. [Hard Coding](#13-hard-coding)
+14. [Logging Your Code](#14-logging-your-code)
 
 ## 1. Principals of When to Code 
 
@@ -23,7 +26,7 @@ If custom logic is required and a tag won't suffice, try to cut out as many unne
 - zip
 - cycle
 - itertools
-- List comprehensions
+- List comprehensions  
 These will all help with removing unnecessary looping and help make code more performant.
  
 Make sure to watch out for excessive database querying; it's very common that any SQL statements done inside of a loop can also be done once outside of a loop using something like SqlHelper.GetList instead of SqlHelper.GetFirst.
@@ -48,6 +51,15 @@ It's also worth mentioning that Traces can add significant processing time to co
 
 
 ### 2.3. JS and Python Functions, Methods, and Variables
+Make sure to name all variables/functions/methods after their purpose and not arbitrary letters and numbers.  If functions have a paired purpose, make sure that this is represented in the naming:
+```js
+function createInfoPopover(){
+    // some code
+}
+function cancelInfoPopover(){
+    // some code
+}
+```
 
     Style: Camel Case
 
@@ -72,14 +84,15 @@ It's also worth mentioning that Traces can add significant processing time to co
 
 - Scripts should start with this header
 ```Python
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #   
 #   Name:
 #   Type: Module/Class/Script/API/CustomAction
+#   Author: 
 #   Copyright: Aspire Digital
 #   Purpose:
 #
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ```
 - Methods/Functions should start with this header
 ```Python
@@ -91,7 +104,7 @@ Parameters:
 """
 ```
 ### 3.1. Modules
-The module 
+
 #### When to use it:
 You want to flip the module switch on a Global Script when all of your functions are completely isolated from each other.  They become Static, not remembering any data passed to them in between calls.
 - Additionally, a module can be used to create an ENum, or static list of assigned variables.  In this case, append the script name with '_ENum'
@@ -183,49 +196,64 @@ This will alow you to reference said template anywhere within the page.  Any add
 ### 4.3. 
 
 ## 5. Custom Actions
-Because Custom Actions can contain code/scripts it creates a large amount of locations that a potentially buggy script could be hiding. For this reason, if your code will contain more than 5 lines, it is best to house your code in a global script, and pass it a reference to the quote, as necessary.
+Because Custom Actions can contain code/scripts, it creates a large amount of locations where a potentially buggy script could be hiding. For this reason, if your code will contain more than a single line, it is best to house your code in a global script, and pass it a reference to the quote, as necessary.
 
 ```Python
 ScriptExecutor.ExecuteGlobal('GlobalScriptName', context.Quote)
 ```
+[More Global Script Info](#3-global-scripts)
 
-## 6. Tags
+## 6. Products
+Because Products can contain code/scripts, it creates a large amount of locations where a potentially buggy script could be hiding. For this reason, if your code will contain more than a single line, it is best to house your code in a global script, and pass it a reference to the Product, as necessary.
+
+```Python
+ScriptExecutor.ExecuteGlobal('GlobalScriptName', Product)
+```
+[More Global Script Info](#3-global-scripts)
+
+## 7. Tags
 
 Tags exist as a faster way to access and process data related to quotes and products. They are more limited in terms of functionality but are much more performant. If you have the option to use a tag instead of a script, use a tag.
 
-### 6.1. Special Tags
+### 7.1. Special Tags
 There are three special tags: CTX, LIST, and TABLE tags. These three tags have extra features and serve different purposes from other tags:
 - CTX tags consolidate many of the existing tags into a singular place, while also offering many new tags to pull information that previously couldn't be pulled. CTX tags have built in formatting options for strings and numbers and can access contents of a container.
 - TABLE tags query and return the first result in a specified custom table. The tag uses HANA SQL, which is very similar to MySQL or PL/SQL, and queries follow the same format as both of those languages. This works for any custom table, including system custom tables.
 - LIST tags operate the same as a TABLE tag, but will return all values retrieved instead of the first value. The values are divided by a | with no spaces.
 
-### 6.2. Tag Deprecation
-When using Tags, especially in Document Generation, use CTX tag whenever possible to avoid deprecations, inside of the C and Q Tags.  A full list of deprecated tags can be found on the SAP CPQ website.
+### 7.2. Tag Deprecation
+When using Tags, especially in Document Generation, use CTX tag whenever possible to avoid deprecations, inside of the C and Q Tags.  A full list of deprecated tags can be found on the SAP CPQ website.  
+    ```
+    <<Q_TAG(<*CTX( Quote.Customer(BillTo).Company)*>)>>  
+    <<C_TAG(<*CTX(Quote.CurrentItem.Description)*>)>>
+    ```
 
-## 7. Linting
+## 8. Linting
 Having the proper Linters installed ensures that the code base remains clean and consistent.  They will through visual errors, on save, when linting standards are not being followed.
 
-Please instal both linters:
+Please install both linters:
 - Flake 8
 - Pylint
 
 To activate linters, restart VS code after installation.
 
-## 8. Spell Check
-Spelling errors are easy to make, and can lead to hours of debugging.  Please instal the following spell checker extension:
+## 9. Spell Check
+Spelling errors are easy to make, and can lead to hours of debugging.  Please install the following spell checker extension:
 - Code Spell Checker
 
-## 9. Pull Requests
-Anyone reviewing code in PR's (Pull Requests), should ensure that all standards were abided by before approving the PR.
+## 10. Pull Requests
+- Anyone reviewing code in PR's (Pull Requests), should ensure that all standards were abided by before approving the PR.
 
-## 10. Repository Branching
+- Once a pull request has been merged, make sure and close any accidental duplicate pull requests. 
+
+## 11. Repository Branching
 - Whenever you have a Story, Bug, Task, etc that results in committing code to the repository, you must create a new Branch, and name it after the ticket assigned to you
 - Append onto the branch name with a basic description of the ticket.
 - Example: "Tenant-Build-CPQ-#89_Create-Top-Of-Page-Button"
 
-## 11. Multi Line Code
+## 12. Multi Line Code
 
-### 11.1. Long Strings
+### 12.1. Long Strings
 - Instead of using new line characters  
 
 <span><img src="/Education/media/images/redX.png" width="20" height="20"/></span>
@@ -242,7 +270,7 @@ myVar = '''
     I like.''' 
 ```
 
-## 11.2. Breaking code into multi lines
+### 12.2. Breaking code into multi lines
 
 Out linting standards constrain line length to 80 Characters or less, here are some ways to maintain this.
 
@@ -270,3 +298,100 @@ myVar = FirstFunction.SecondFunction("This is a long string")
 myVar = FirstFunction \
     .SecondFunction("This is a long string")
 ```
+
+## 13. Hard Coding
+This is a non-starter, full stop.
+
+- If we need to access data within our scripts, you have two options:  
+
+    #### 1. Reference a Global Script Module used as an Enum. (This is a Module that contains only variables.)
+    ```python
+    firstVariable = "some value"
+    secondVariable = "some other value"
+    ```  
+    #### 2. Better Option is to Store this Data in a custom table.
+
+- Do not assign hard coded numbers or strings straight into your code. Instead assign those numbers/string to a variable at the top of the function/method or class.
+
+## 14. Logging Your Code
+
+The purpose of Logs lies in the ability to track our process through the code, success or failure.  To do this we have instituted a StandardLogging class This is the standard for logging in the tenant. 
+
+### StandardLogging
+
+#### Imported:
+```python
+from StandardLogging import StandardLogging as log
+```
+#### Definitions:
+```python
+
+@staticmethod
+def start(script_name, msg=""):
+    """
+    To be called at the entrance to a module or class
+    Args:
+        script_name (str): name of script being called
+        explanation (str): purpose of script
+    """
+
+@staticmethod
+def info(script_name, msg):
+    """
+    Displays a formatted message to the logs
+    Args:
+        message (str): Custom message to display
+    """
+
+@staticmethod
+def error(script_name, msg=""):
+    '''
+    To be called when there is a error
+    case in the code.
+    Args:
+        customMessage (str): Display more info to the user
+    '''
+
+@staticmethod
+def exception(script_name, msg=""):
+    '''
+    Method to be called directly under the
+    'except' in a try/except block.
+    Args:
+        customMessage (str): Display more info to the user
+    '''
+
+@staticmethod
+def table(script_name, query, response=""):
+    '''
+    Method to be called inside a script whenever a table is accessed.
+    Args:
+        query (str): query string
+        response (str): response from the query
+    '''
+
+@staticmethod
+def quote(script_name, quote, msg=""):
+    '''
+    Method to be called at the top of any
+    script that adjusts or accesses a quote.
+    Args:
+        quote (context.Quote): reference to the quote
+        msg (str): to include what is accessed / modified
+    '''
+```
+#### Note: 
+- error() should be used when there is a logical error, such as:
+    ```python
+    x = 1
+    if x is not 2:
+        log.error('ScriptName', 'Invalid x value')
+    ``` 
+- exception() should be used to handle exceptions as such:
+    ```python
+    try:
+        raise Exception()
+    except Exception:
+        log.exception('ScriptName', 'Exception raised while trying to ...')
+    ```
+- table() should be called at the end of a table call.  Convert return to string and log.  There may be certain times where the return value is too large by necessity.  In this case, log 'Return Value Bypassed' 
