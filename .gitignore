@@ -1,4 +1,5 @@
 .env
+.env.secret
 log.txt
-Deploy/DeployScripts/__pycache__/
+*.pyc
 

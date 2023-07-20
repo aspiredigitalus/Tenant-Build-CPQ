@@ -10,6 +10,7 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 import requests
+import json
 
 
 class CpqApiHelper:
@@ -27,6 +28,25 @@ class CpqApiHelper:
 
     __jwtBearerBreakPoint = 600
 
+    systemEvenIds = [
+        1,
+        2,
+        3,
+        17,
+        18,
+        19,
+        34,
+        37,
+        41,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        56
+    ]
+
     def __init__(self, username: str, password: str, host: str):
         """
         Description: Constructor to take in auth data 
@@ -42,6 +62,8 @@ class CpqApiHelper:
 
         self.getTokens()
 
+    # GLOBAL SCRIPT APIS
+
     def getAllGlobalSCripts(self):
         api = "/api/script/v1/globalscripts"
         url = self.__host + api
@@ -52,6 +74,44 @@ class CpqApiHelper:
             headers=headers
         )
         return response.json()['pagedRecords']
+
+    def updateGlobalScript(self, id, package):
+        api = "/api/script/v1/globalscripts/" + str(id)
+        url = self.__host + api
+        headers = self.getHeaderBearer()
+        response = self.testCallSuccess(
+            requests.put,
+            url,
+            data=json.dumps(package),
+            headers=headers
+        )
+        return response
+
+    def addGlobalScript(self, package):
+        api = "/api/script/v1/globalscripts"
+        url = self.__host + api
+        headers = self.getHeaderBearer()
+        headers['Content-Type'] = 'application/json'
+        response = self.testCallSuccess(
+            requests.post,
+            url,
+            data=json.dumps(package),
+            headers=headers
+        )
+        return response
+
+    def deleteGlobalScript(self, id):
+        api = "/api/script/v1/globalscripts/" + str(id)
+        url = self.__host + api
+        headers = self.getHeaderBearer()
+        response = self.testCallSuccess(
+            requests.delete,
+            url,
+            headers=headers
+        )
+        return response
+
+    # UTILITY METHODS
 
     def testCallSuccess(self, func, url, data='', params='', headers=''):
         response = func(url, data=data, params=params, headers=headers)
@@ -85,6 +145,23 @@ class CpqApiHelper:
         return {
             'Authorization': 'Bearer ' + self.__tokens['jwtToken']
         }
+
+    def ordered(self, obj):
+        """
+        Orders or structures lists and dict so that
+        they can be compared.
+
+        Parameters:
+            (dict|list): object to be ordered
+
+        Returns: Ordered object of same type
+        """
+        if isinstance(obj, dict):
+            return sorted((k, self.ordered(v)) for k, v in obj.items())
+        if isinstance(obj, list):
+            return sorted(self.ordered(x) for x in obj)
+        else:
+            return obj
 
     def getTokens(self):
         """

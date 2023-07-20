@@ -12,7 +12,14 @@ from DeployScripts.GlobalScripts import GlobalScripts
 from DeployScripts.CustomTemplates import CustomTemplates
 from DeployScripts.UserTypes import UserTypes
 from UtilityScripts.CpqApiHelper import CpqApiHelper
-from decouple import config
+from dotenv import load_dotenv
+import os
+
+try:
+    load_dotenv('.env.deploy')
+    load_dotenv('.env.secret')
+except Exception:
+    print('Environment Files not loaded')
 
 
 def deploy():
@@ -22,12 +29,13 @@ def deploy():
     via API calls.
     Parameters: None
     """
-    
+
     api = CpqApiHelper(
-        config('Cpq_Username'),
-        config('Cpq_Password'),
-        config('Cpq_Host')
+        os.getenv('Cpq_Username'),
+        os.getenv('Cpq_Password'),
+        os.getenv('Cpq_Host')
     )
+
     deployScripts = populateDeployScripts()
 
     for script in deployScripts:
