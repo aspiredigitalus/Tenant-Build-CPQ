@@ -1,3 +1,13 @@
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+#   Name: DeployLogger
+#   Type: Class
+#   Author: David Mehoves
+#   Copyright: Aspire Digital
+#   Purpose: Custom Logger to produce .txt files (used for CI/CD Pipeline)
+#
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 import datetime
 import sys
 import os
@@ -7,6 +17,11 @@ class Log:
 
     @staticmethod
     def info(message):
+        """
+        Description: General log messages
+        Parameters:
+            - (str): log message
+        """
         timestamp = str(datetime.datetime.now())
         log_message = timestamp + " ~+~ " + message + "\n"
         with open('Deploy/Deploy_Log.txt', 'a') as f:
@@ -15,6 +30,13 @@ class Log:
 
     @staticmethod
     def error(message):
+        """
+        Description: Placed inside an except block,
+        produces stack trace as well as passing through
+        message.
+        Parameters:
+            - (str): log message
+        """
         spacer = "                               "
         timestamp = str(datetime.datetime.now())
         log_message = timestamp + " ~+~ " + message + "\n"
@@ -31,6 +53,11 @@ class Log:
 
     @staticmethod
     def program_start():
+        """
+        Description: Identifies start of pipeline
+        in the log.
+        Parameters: none
+        """
         with open('Deploy/Deploy_Log.txt', 'a') as f:
             f.write("\n\n>>>>>>>>>>>       Deploy Pipeline Start       <<<<<<<<<<<<<<<<\n\n")
             f.close()
