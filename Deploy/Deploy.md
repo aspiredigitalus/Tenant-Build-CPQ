@@ -2,7 +2,7 @@
 
 - run terminal command
  ```
- pip install python-decouple
+ pip install python-dotenv
  ```  
 
 - place a .env.secret file in your root folder and populate:

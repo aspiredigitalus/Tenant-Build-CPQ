@@ -79,6 +79,7 @@ class CpqApiHelper:
         api = "/api/script/v1/globalscripts/" + str(id)
         url = self.__host + api
         headers = self.getHeaderBearer()
+        headers['Content-Type'] = 'application/json'
         response = self.testCallSuccess(
             requests.put,
             url,

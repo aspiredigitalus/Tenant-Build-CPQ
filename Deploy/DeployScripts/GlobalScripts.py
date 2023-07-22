@@ -97,7 +97,9 @@ class GlobalScripts(DeployScriptInterface):
                             apiData['scriptDefinition']['id'],
                             mainData
                         )
-                    except Exception:
+                        print(f"Executing GlobalScript update for {scriptSystemId}")
+                    except Exception as e:
+                        print(str(e))
                         pass
                 else:
                     print(f"No update needed for {scriptSystemId}")
@@ -126,6 +128,6 @@ class GlobalScripts(DeployScriptInterface):
                     self.api.deleteGlobalScript(
                         record['scriptDefinition']['id']
                     )
-                    print(f"Executing delete for systemId: {record['scriptDefinition']['id']}")
+                    print(f"Executing delete for {record['scriptDefinition']['systemId']}")
                 except Exception:
                     pass
