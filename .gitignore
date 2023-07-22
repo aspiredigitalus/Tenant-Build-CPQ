@@ -3,3 +3,6 @@
 log.txt
 *.pyc
 
+*.txt
+*.env.secret
+*.pyc
