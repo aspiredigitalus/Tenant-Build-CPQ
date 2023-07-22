@@ -1,8 +1,4 @@
 .env
-.env.secret
-log.txt
-*.pyc
-
 *.txt
 *.env.secret
 *.pyc
