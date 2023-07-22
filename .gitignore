@@ -3,3 +3,5 @@ log.txt
 Deploy/DeployScripts/__pycache__/
 
 *.txt
+*.env.secret
+*.pyc
