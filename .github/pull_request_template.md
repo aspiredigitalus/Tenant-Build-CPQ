@@ -18,3 +18,7 @@
 - [ ] Bug Fix
 - [ ] Documentation
 - [ ] Story/Feature
+
+## Required Items
+
+- [ ] .json files for all (.py & .html) files
