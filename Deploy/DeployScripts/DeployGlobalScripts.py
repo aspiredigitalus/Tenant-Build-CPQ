@@ -1,6 +1,6 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
-#   Name: UserTypes
+#   Name: DeployGlobalScripts
 #   Type: Class
 #   Author: David Mehoves
 #   Copyright: Aspire Digital
@@ -12,12 +12,13 @@
 from UtilityScripts.DeployScriptInterface import DeployScriptInterface
 from UtilityScripts.CpqApiHelper import CpqApiHelper
 from UtilityScripts.DeployUtilities import DeployUtilities as util
+from UtilityScripts.DeployLogger import Log as log
 import json
 import sys
 import glob
 
 
-class GlobalScripts(DeployScriptInterface):
+class DeployGlobalScripts(DeployScriptInterface):
 
     def __init__(self, api: CpqApiHelper):
         self.api = api
@@ -28,6 +29,10 @@ class GlobalScripts(DeployScriptInterface):
         syncs CPQ tenant to repository.
         Parameters: None
         """
+
+        # Log Deploy Script Start
+        log.info("[Pipeline - Global Scripts]")
+        print("[Pipeline - Global Scripts]")
 
         # Get dict for All Global Scripts, save by SystemID
 
@@ -97,12 +102,14 @@ class GlobalScripts(DeployScriptInterface):
                             apiData['scriptDefinition']['id'],
                             mainData
                         )
-                        print(f"Executing GlobalScript update for {scriptSystemId}")
+                        print(f">>GlobalScript>>UPDATE: {scriptSystemId}")
+                        log.info(f">>GlobalScript>>UPDATE: {scriptSystemId}")
                     except Exception as e:
                         print(str(e))
-                        pass
+                        log.error(f">>GlobalScript>>UPDATE: {scriptSystemId}")
                 else:
-                    print(f"No update needed for {scriptSystemId}")
+                    print(f">>GLOBALScripts>>IDENTICAL: {scriptSystemId}")
+                    log.info(f">>GLOBALScripts>>IDENTICAL: {scriptSystemId}")
                 del globalScriptDict[scriptSystemId]
 
             else:
@@ -115,11 +122,12 @@ class GlobalScripts(DeployScriptInterface):
                     mainData['events'] = [e for e in mainData['events']
                         if e['systemEventId'] in self.api.systemEventIds]
 
-                    response = self.api.addGlobalScript(mainData)
-                    print(f"Executing GlobalScript add for {scriptSystemId}")
+                    self.api.addGlobalScript(mainData)
+                    print(f">>GLOBALScripts>>ADD: {scriptSystemId}")
+                    log.info(f">>GLOBALScripts>>ADD: {scriptSystemId}")
                 except Exception as e:
                     print(str(e))
-                    pass
+                    log.error(f">>GLOBALScripts>>ADD: {scriptSystemId}")
 
         if util.transBoolEnv('GlobalScripts_delete'):
             # Constrain delete action to .env.deploy boolean
@@ -128,6 +136,14 @@ class GlobalScripts(DeployScriptInterface):
                     self.api.deleteGlobalScript(
                         record['scriptDefinition']['id']
                     )
-                    print(f"Executing delete for {record['scriptDefinition']['systemId']}")
-                except Exception:
-                    pass
+                    print(
+                        f">>GLOBALScripts>>DELETE:  {record['scriptDefinition']['systemId']}"
+                    )
+                    log.info(
+                        f">>GLOBALScripts>>DELETE:  {record['scriptDefinition']['systemId']}"
+                    )
+                except Exception as e:
+                    print(str(e))
+                    log.error(
+                        f">>GLOBALScripts>>DELETE:  {record['scriptDefinition']['systemId']}"
+                    )

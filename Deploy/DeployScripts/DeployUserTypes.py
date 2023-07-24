@@ -1,6 +1,6 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
-#   Name: UserTypes
+#   Name: DeployUserTypes
 #   Type: Class
 #   Author: David Mehoves
 #   Copyright: Aspire Digital
@@ -11,9 +11,10 @@
 
 from UtilityScripts.DeployScriptInterface import DeployScriptInterface
 from UtilityScripts.CpqApiHelper import CpqApiHelper
+from UtilityScripts.DeployLogger import Log as log
 
 
-class UserTypes(DeployScriptInterface):
+class DeployUserTypes(DeployScriptInterface):
 
     def __init__(self, api: CpqApiHelper):
         self.api = api
@@ -24,4 +25,7 @@ class UserTypes(DeployScriptInterface):
         syncs CPQ tenant to repository.
         Parameters: None
         """
-        print("Deploying User types")
+
+        # Log Deploy Script Start
+        log.info("[Pipeline - User Types]")
+        print("[Pipeline - User Types]")

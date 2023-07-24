@@ -8,12 +8,16 @@
 #
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 from UtilityScripts.DeployUtilities import DeployUtilities as util
-from DeployScripts.GlobalScripts import GlobalScripts
-from DeployScripts.CustomTemplates import CustomTemplates
-from DeployScripts.UserTypes import UserTypes
+from DeployScripts.DeployGlobalScripts import DeployGlobalScripts
+from DeployScripts.DeployCustomTemplates import DeployCustomTemplates
+from DeployScripts.DeployUserTypes import DeployUserTypes
 from UtilityScripts.CpqApiHelper import CpqApiHelper
 from dotenv import load_dotenv
+from UtilityScripts.DeployLogger import Log as log
 import os
+
+
+log.program_start()
 
 try:
     load_dotenv('.env.deploy')
@@ -30,11 +34,16 @@ def deploy():
     Parameters: None
     """
 
-    api = CpqApiHelper(
-        os.getenv('Cpq_Username'),
-        os.getenv('Cpq_Password'),
-        os.getenv('Cpq_Host')
-    )
+    try:
+        api = CpqApiHelper(
+            os.getenv('Cpq_Username'),
+            os.getenv('Cpq_Password'),
+            os.getenv('Cpq_Host')
+        )
+    except Exception as e:
+        print(str(e))
+        log.error("Error while loading CpqApiHelper")
+        exit()
 
     deployScripts = populateDeployScripts()
 
@@ -54,13 +63,13 @@ def populateDeployScripts():
     deployScripts = []
 
     if util.transBoolEnv('GlobalScripts_run'):
-        deployScripts.append(GlobalScripts)
+        deployScripts.append(DeployGlobalScripts)
 
     if util.transBoolEnv('CustomTemplates_run'):
-        deployScripts.append(CustomTemplates)
+        deployScripts.append(DeployCustomTemplates)
 
     if util.transBoolEnv('UserTypes_run'):
-        deployScripts.append(UserTypes)
+        deployScripts.append(DeployUserTypes)
 
     return deployScripts
 

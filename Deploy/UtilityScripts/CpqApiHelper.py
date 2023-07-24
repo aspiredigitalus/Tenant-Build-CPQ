@@ -9,6 +9,7 @@
 #
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+from UtilityScripts.DeployLogger import Log as log
 import requests
 import json
 
@@ -56,6 +57,8 @@ class CpqApiHelper:
                     (str): password
                     (str): host url to prepend api url snippet.
         """
+        if not username or not password or not host:
+            raise Exception("Exception: Credentials not passed to CpqApiHelper")
         self.__username = username
         self.__password = password
         self.__host = host
@@ -171,6 +174,9 @@ class CpqApiHelper:
         Parameters: None
         """
 
+        log.info("[API Login Flow - Getting Tokens]")
+        
+        
         # Get Bearer Tokens
         api = "/basic/api/token"
         url = self.__host + api

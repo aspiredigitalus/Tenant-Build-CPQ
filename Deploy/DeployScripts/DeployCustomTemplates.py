@@ -1,6 +1,6 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
-#   Name: UserTypes
+#   Name: DeployCustomTemplates
 #   Type: Class
 #   Author: David Mehoves
 #   Copyright: Aspire Digital
@@ -11,9 +11,10 @@
 
 from UtilityScripts.DeployScriptInterface import DeployScriptInterface
 from UtilityScripts.CpqApiHelper import CpqApiHelper
+from UtilityScripts.DeployLogger import Log as log
 
 
-class CustomTemplates(DeployScriptInterface):
+class DeployCustomTemplates(DeployScriptInterface):
 
     def __init__(self, api: CpqApiHelper):
         self.api = api
@@ -24,4 +25,7 @@ class CustomTemplates(DeployScriptInterface):
         syncs CPQ tenant to repository.
         Parameters: None
         """
-        print("Deploying custom Templates")
+
+        # Log Deploy Script Start
+        log.info("[Pipeline - Custom Templates]")
+        print("[Pipeline - Custom Templates]")
