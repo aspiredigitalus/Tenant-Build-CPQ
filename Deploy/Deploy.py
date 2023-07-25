@@ -36,9 +36,9 @@ def deploy():
 
     try:
         api = CpqApiHelper(
-            os.getenv('Cpq_Username'),
-            os.getenv('Cpq_Password'),
-            os.getenv('Cpq_Host')
+            os.getenv('CPQ_USERNAME'),
+            os.getenv('CPQ_PASSWORD'),
+            os.getenv('CPQ_HOST')
         )
     except Exception as e:
         print(str(e))
@@ -62,13 +62,13 @@ def populateDeployScripts():
     """
     deployScripts = []
 
-    if util.transBoolEnv('GlobalScripts_run'):
+    if util.transBoolEnv('GLOBAL_SCRIPTS_RUN'):
         deployScripts.append(DeployGlobalScripts)
 
-    if util.transBoolEnv('CustomTemplates_run'):
+    if util.transBoolEnv('CUSTOM_TEMPLATES_RUN'):
         deployScripts.append(DeployCustomTemplates)
 
-    if util.transBoolEnv('UserTypes_run'):
+    if util.transBoolEnv('USER_TYPES_RUN'):
         deployScripts.append(DeployUserTypes)
 
     return deployScripts
