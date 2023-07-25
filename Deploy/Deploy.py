@@ -20,8 +20,8 @@ import os
 log.program_start()
 
 try:
-    load_dotenv('.env.deploy')
-    load_dotenv('.env.secret')
+    load_dotenv('.env.deploy', override=True)
+    load_dotenv('.env.secret', override=False)
 except Exception:
     print('Environment Files not loaded')
 
