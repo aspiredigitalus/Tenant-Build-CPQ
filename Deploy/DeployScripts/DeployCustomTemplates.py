@@ -1,18 +1,23 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
-#   Name: UserTypes
+#   Name: DeployCustomTemplates
 #   Type: Class
 #   Author: David Mehoves
 #   Copyright: Aspire Digital
 #   Purpose: Child Class of DeployScriptInterface, syncs repository
-#   and tenant UserTypes, with optional delete.
+#   and tenant CustomTemplates, with optional delete.
 #
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 from UtilityScripts.DeployScriptInterface import DeployScriptInterface
+from UtilityScripts.CpqApiHelper import CpqApiHelper
+from UtilityScripts.DeployLogger import Log as log
 
 
-class UserTypes(DeployScriptInterface):
+class DeployCustomTemplates(DeployScriptInterface):
+
+    def __init__(self, api: CpqApiHelper):
+        self.api = api
 
     def run(self):
         """
@@ -20,4 +25,7 @@ class UserTypes(DeployScriptInterface):
         syncs CPQ tenant to repository.
         Parameters: None
         """
-        print("Deploying User types")
+
+        # Log Deploy Script Start
+        log.info("[Pipeline - Custom Templates]")
+        print("[Pipeline - Custom Templates]")

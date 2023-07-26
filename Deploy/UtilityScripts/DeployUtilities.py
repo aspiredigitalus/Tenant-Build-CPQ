@@ -9,6 +9,7 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 from decouple import config
+import os
 
 
 class DeployUtilities:
@@ -22,7 +23,7 @@ class DeployUtilities:
             - (str): .env key
         """
         try:
-            envInput = config(envKey)
+            envInput = os.getenv(envKey)
         except Exception:
             print('Error accessing key: {}'.format(envKey))
             envInput = None

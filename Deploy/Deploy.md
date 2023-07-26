@@ -2,23 +2,14 @@
 
 - run terminal command
  ```
- pip install python-decouple
+ pip install python-dotenv
  ```  
 
-- place a .env file in your root folder and populate:
+- place a .env.secret file in your root folder and populate:
  ```
- host_url=
- username=
- password=
-
- GlobalScripts_run=True
- GlobalScripts_delete=False
-
- CustomTemplates_run=True
- CustomTemplates_delete=False
-
- UserTypes_run=True
- UserTypes_delete=False
+Cpq_Host=
+Cpq_Username=
+Cpq_Password=
  ```
 
 - run the Deploy.py script
