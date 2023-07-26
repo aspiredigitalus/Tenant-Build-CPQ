@@ -11,7 +11,7 @@ from UtilityScripts.DeployUtilities import DeployUtilities as util
 from DeployScripts.GlobalScripts import GlobalScripts
 from DeployScripts.CustomTemplates import CustomTemplates
 from DeployScripts.UserTypes import UserTypes
-
+from DeployScripts.CustomTables import CustomTables
 
 def deploy():
     """
@@ -45,6 +45,9 @@ def populateDeployScripts():
 
     if util.transBoolEnv('UserTypes_run'):
         deployScripts.append(UserTypes)
+
+    if util.transBoolEnv('CustomTables_run'):
+        deployScripts.append(CustomTables)
 
     return deployScripts
 

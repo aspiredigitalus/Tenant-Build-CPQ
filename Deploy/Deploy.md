@@ -3,7 +3,7 @@
 - run terminal command
  ```
  pip install python-decouple
- ```  
+ ```
 
 - place a .env file in your root folder and populate:
  ```
@@ -19,6 +19,10 @@
 
  UserTypes_run=True
  UserTypes_delete=False
+
+ CustomTables_run=True
+ CustomTables_delete=False
+
  ```
 
 - run the Deploy.py script
