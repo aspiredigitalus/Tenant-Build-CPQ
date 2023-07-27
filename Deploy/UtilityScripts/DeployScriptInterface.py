@@ -16,3 +16,11 @@ class DeployScriptInterface(abc.ABC):
     @abc.abstractclassmethod
     def run():
         pass
+
+    @abc.abstractclassmethod
+    def __str__():
+        pass
+
+    @abc.abstractclassmethod
+    def __init__():
+        pass

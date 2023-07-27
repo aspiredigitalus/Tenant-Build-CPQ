@@ -19,13 +19,13 @@ class DeployUserTypes(DeployScriptInterface):
     def __init__(self, api: CpqApiHelper):
         self.api = api
 
+    def __str__(self):
+        return "DeployUserTypes"
+
     def run(self):
         """
         Description: This is the driver method that
         syncs CPQ tenant to repository.
         Parameters: None
         """
-
-        # Log Deploy Script Start
-        log.info("[Pipeline - User Types]")
-        print("[Pipeline - User Types]")
+        pass

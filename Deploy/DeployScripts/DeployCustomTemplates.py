@@ -19,13 +19,14 @@ class DeployCustomTemplates(DeployScriptInterface):
     def __init__(self, api: CpqApiHelper):
         self.api = api
 
+    def __str__(self):
+        return "DeployCustomTemplates"
+
     def run(self):
         """
         Description: This is the driver method that
         syncs CPQ tenant to repository.
         Parameters: None
         """
+        pass
 
-        # Log Deploy Script Start
-        log.info("[Pipeline - Custom Templates]")
-        print("[Pipeline - Custom Templates]")
