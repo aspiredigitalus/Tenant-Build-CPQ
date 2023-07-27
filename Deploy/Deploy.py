@@ -7,6 +7,7 @@
 #   Purpose: Script to deploy repository to tenant
 #
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+from UtilityScripts.DeployScriptInterface import DeployScriptInterface
 from UtilityScripts.DeployUtilities import DeployUtilities as util
 from DeployScripts.DeployGlobalScripts import DeployGlobalScripts
 from DeployScripts.DeployCustomTemplates import DeployCustomTemplates
@@ -33,6 +34,7 @@ def deploy():
     via API calls.
     Parameters: None
     """
+    instClass = None
 
     try:
         api = CpqApiHelper(
@@ -49,9 +51,19 @@ def deploy():
 
     for script in deployScripts:
         try:
-            script(api).run()
+            instClass = script(api)
+
+            # Log Deploy Script Start
+            log.info(f"[Pipeline - {instClass}]")
+            print(f"[Pipeline - {instClass}]")
+
+            # Run Script Function
+            instClass.run()
         except Exception as e:
-            print("Exception: " + str(e))
+            if instClass:
+                print(f"Exception in {instClass}: " + str(e))
+            else:
+                print("Exception: " + str(e))
 
 
 def populateDeployScripts():

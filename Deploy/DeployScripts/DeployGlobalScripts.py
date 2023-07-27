@@ -22,6 +22,10 @@ class DeployGlobalScripts(DeployScriptInterface):
 
     def __init__(self, api: CpqApiHelper):
         self.api = api
+        
+
+    def __str__(self):
+        return "DeployGlobalScripts"
 
     def run(self):
         """
@@ -29,10 +33,6 @@ class DeployGlobalScripts(DeployScriptInterface):
         syncs CPQ tenant to repository.
         Parameters: None
         """
-
-        # Log Deploy Script Start
-        log.info("[Pipeline - Global Scripts]")
-        print("[Pipeline - Global Scripts]")
 
         # Get dict for All Global Scripts, save by SystemID
 
@@ -42,7 +42,7 @@ class DeployGlobalScripts(DeployScriptInterface):
             globalScriptDict[script['scriptDefinition']['systemId']] = script
 
         pathToJsonFiles = "Code/GlobalScripts/"
-
+        raise Exception()
         filter = '*.json'
         if len(sys.argv) > 1:
             filter = f'{sys.argv[1]}.json'
