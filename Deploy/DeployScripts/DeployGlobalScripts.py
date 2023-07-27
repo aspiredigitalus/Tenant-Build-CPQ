@@ -128,7 +128,7 @@ class DeployGlobalScripts(DeployScriptInterface):
                     print(str(e))
                     log.error(f">>GLOBALScripts>>ADD: {scriptSystemId}")
 
-        if util.transBoolEnv('GlobalScripts_delete'):
+        if util.transBoolEnv('GLOBAL_SCRIPTS_DELETE'):
             # Constrain delete action to .env.deploy boolean
             for record in globalScriptDict.values():
                 try:
