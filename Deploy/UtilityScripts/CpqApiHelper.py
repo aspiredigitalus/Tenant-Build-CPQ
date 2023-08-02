@@ -274,14 +274,11 @@ class CpqApiHelper:
         self.__tokens['xcsrfToken'] = response.json()
         self.__tokens['cookies'] = response.cookies
 
-        print('Bearer Token')
-        print(self.__tokens['bearerToken'] + "\n")
+        print('Bearer Token -> [SAVED]\n')
+        
+        print('JWT Token -> [SAVED]\n')
 
-        print('JWT Token')
-        print(self.__tokens['jwtToken'] + "\n")
+        print('X-CSRF Token -> [SAVED]\n')
 
-        print('X-CSRF Token')
-        print(self.__tokens['xcsrfToken'] + "\n")
+        print('Cookies -> [SAVED]\n')
 
-        print('Cookies')
-        print(str(self.__tokens['cookies'].get_dict()) + "\n")
