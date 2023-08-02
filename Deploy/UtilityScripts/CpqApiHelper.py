@@ -4,7 +4,7 @@
 #   Type: Class
 #   Author: Lucas Yepez & David Mehoves
 #   Copyright: Aspire Digital
-#   Purpose: A Class that holds all crud operation API calls 
+#   Purpose: A Class that holds all crud operation API calls
 #           and other useful methods for sorting data.
 #
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -50,7 +50,7 @@ class CpqApiHelper:
 
     def __init__(self, username: str, password: str, host: str):
         """
-        Description: Constructor to take in auth data 
+        Description: Constructor to take in auth data
                     and save to private variables
         Parameters:
                     (str): username
@@ -115,6 +115,67 @@ class CpqApiHelper:
         )
         return response
 
+    # Custom Table APIS
+
+    def getAllCustomTables(self):
+
+        headers = self.getCTHeaderJwt()
+
+        url = self.__host + "/api/custom-table/v1/customTables"
+        tables = requests.get(url, headers=headers)
+
+        if tables.status_code == 200:
+            tables_data = tables.json()
+            print("All custom tables: " + str(tables_data))
+        else:
+            print(f"Request failed with status code: {tables.status_code}")
+
+    def updateCustomTables(self):
+        data = {
+        "isHidden": False,
+        "auditTrailLevel": "Row"
+    }
+        headers = self.postCTHeaderJwt()
+        tableName = "test_table_LY"
+        url = self.__host+ f"/api/custom-table/v1/customTables/{tableName}"
+        response = requests.patch(url, headers=headers, json=data)
+        print(response)
+
+    def addCustomTables(self):
+        headers = self.postCTHeaderJwt()
+        data = {
+            "tableName": "test_table_LY",
+            "isHidden": False,
+            "auditTrailLevel": "Row",
+            "columns": [
+                {
+                    "id": 0,
+                    "columnName": "col1",
+                    "dbType": "INT",
+                    "columnSize": 0,
+                    "isNullable": True,
+                    "isProtected": True,
+                    "isSensitive": True
+                }
+            ]
+    }
+        url = self.__host + "/api/custom-table/v1/customTables"
+
+        response = requests.post(url, headers=headers, json=data)
+
+        if response.status_code == 201:
+            response_data = response.json()
+            print("Response:", response_data)  # This will show the response content
+        else:
+            print(f"Request failed with status code: {response.status_code}")
+
+    def deleteCustomTables(self):
+        headers = self.postCTHeaderJwt()
+        tableName="test_table_LY"
+        url = self.__host + f"/api/custom-table/v1/customTables/{tableName}"
+        deleted_table = requests.delete(url,headers=headers)
+        print("deleted table " + str(deleted_table))
+
     # UTILITY METHODS
 
     def testCallSuccess(self, func, url, data='', params='', headers=''):
@@ -149,6 +210,13 @@ class CpqApiHelper:
         return {
             'Authorization': 'Bearer ' + self.__tokens['jwtToken']
         }
+    def getCTHeaderJwt(self):
+        return {{"Authorization": f"Bearer {self.__tokens['jwtToken']}", "accept": "*/*"}}
+    def postCTHeaderJwt(self):
+        return {"Authorization": f"Bearer {self.__tokens['jwtToken']}",
+                "accept": "*/*",
+                "Content-Type": "application/json"
+        }
 
     def ordered(self, obj):
         """
@@ -175,8 +243,8 @@ class CpqApiHelper:
         """
 
         log.info("[API Login Flow - Getting Tokens]")
-        
-        
+
+
         # Get Bearer Tokens
         api = "/basic/api/token"
         url = self.__host + api
