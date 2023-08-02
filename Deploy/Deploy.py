@@ -15,8 +15,16 @@ from DeployScripts.DeployUserTypes import DeployUserTypes
 from UtilityScripts.CpqApiHelper import CpqApiHelper
 from dotenv import load_dotenv
 from UtilityScripts.DeployLogger import Log as log
+from pathlib import Path
 import os
+import sys
 
+
+# Set Working Directory
+abspath = os.path.abspath(__file__)
+dname = os.path.dirname(abspath)
+workingDir = str(Path(dname).parents[0])
+os.chdir(workingDir)
 
 log.program_start()
 
