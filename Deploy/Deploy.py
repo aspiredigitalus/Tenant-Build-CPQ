@@ -67,6 +67,7 @@ def deploy():
 
             # Run Script Function
             instClass.run()
+            print("\n")
         except Exception as e:
             if instClass:
                 print(f"Exception in {instClass}: " + str(e))
