@@ -44,7 +44,7 @@ class Log:
         line_num = exc_info[2].tb_lineno
         file = os.path.split(exc_info[2].tb_frame.f_code.co_filename)[1]
         error_msg = exc_info[1]
-        with open('Deploy/Deploy_Log.txt', 'a') as f:
+        with open('Deploy_Log.txt', 'a') as f:
             f.write(log_message)
             f.write(spacer + "Line Number: " + str(line_num) + "\n")
             f.write(spacer + "File: " + str(file) + "\n")
