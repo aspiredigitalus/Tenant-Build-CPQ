@@ -24,7 +24,7 @@ class Log:
         """
         timestamp = str(datetime.datetime.now())
         log_message = timestamp + " ~+~ " + message + "\n"
-        with open('Deploy/Deploy_Log.txt', 'a') as f:
+        with open('Deploy_Log.txt', 'a') as f:
             f.write(log_message)
             f.close()
 
@@ -58,6 +58,6 @@ class Log:
         in the log.
         Parameters: none
         """
-        with open('Deploy/Deploy_Log.txt', 'a') as f:
+        with open('Deploy_Log.txt', 'a') as f:
             f.write("\n\n>>>>>>>>>>>       Deploy Pipeline Start       <<<<<<<<<<<<<<<<\n\n")
             f.close()
