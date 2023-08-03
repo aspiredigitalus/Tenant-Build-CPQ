@@ -119,10 +119,15 @@ class CpqApiHelper:
 
     def getAllCustomTables(self):
 
-        headers = self.getCTHeaderJwt()
-
+        headers = self.getHeaderJwt()
+        headers["Content-Type"] = "application/json"
         url = self.__host + "/api/custom-table/v1/customTables"
-        tables = requests.get(url, headers=headers)
+        # tables = requests.get(url, headers=headers)
+        tables= self.testCallSuccess(
+            requests.get,
+            url,
+            headers=headers
+        )
 
         if tables.status_code == 200:
             tables_data = tables.json()
@@ -135,14 +140,22 @@ class CpqApiHelper:
         "isHidden": False,
         "auditTrailLevel": "Row"
     }
-        headers = self.postCTHeaderJwt()
+        headers = self.getHeaderJwt()
+        headers["Content-Type"] = "application/json"
         tableName = "test_table_LY"
         url = self.__host+ f"/api/custom-table/v1/customTables/{tableName}"
-        response = requests.patch(url, headers=headers, json=data)
-        print(response)
+        tables= self.testCallSuccess(
+            requests.patch,
+            url,
+            headers=headers,
+            data=json.dumps(data)
+        )
+
+        print(tables)
 
     def addCustomTables(self):
-        headers = self.postCTHeaderJwt()
+        headers = self.getHeaderJwt()
+        headers["Content-Type"] = "application/json"
         data = {
             "tableName": "test_table_LY",
             "isHidden": False,
@@ -161,19 +174,28 @@ class CpqApiHelper:
     }
         url = self.__host + "/api/custom-table/v1/customTables"
 
-        response = requests.post(url, headers=headers, json=data)
+        response= self.testCallSuccess(
+            requests.post,
+            url,
+            headers=headers,
+            data=json.dumps(data)
+        )
 
         if response.status_code == 201:
             response_data = response.json()
-            print("Response:", response_data)  # This will show the response content
+            print("Response:", response_data)
         else:
             print(f"Request failed with status code: {response.status_code}")
 
     def deleteCustomTables(self):
-        headers = self.postCTHeaderJwt()
+        headers = self.getHeaderJwt()
         tableName="test_table_LY"
         url = self.__host + f"/api/custom-table/v1/customTables/{tableName}"
-        deleted_table = requests.delete(url,headers=headers)
+        deleted_table= self.testCallSuccess(
+            requests.delete,
+            url,
+            headers=headers
+        )
         print("deleted table " + str(deleted_table))
 
     # UTILITY METHODS
@@ -210,13 +232,13 @@ class CpqApiHelper:
         return {
             'Authorization': 'Bearer ' + self.__tokens['jwtToken']
         }
-    def getCTHeaderJwt(self):
-        return {{"Authorization": f"Bearer {self.__tokens['jwtToken']}", "accept": "*/*"}}
-    def postCTHeaderJwt(self):
-        return {"Authorization": f"Bearer {self.__tokens['jwtToken']}",
-                "accept": "*/*",
-                "Content-Type": "application/json"
-        }
+    # def getCTHeaderJwt(self):
+    #     return {{"Authorization": f"Bearer {self.__tokens['jwtToken']}", "accept": "*/*"}}
+    # def postCTHeaderJwt(self):
+    #     return {"Authorization": f"Bearer {self.__tokens['jwtToken']}",
+    #             "accept": "*/*",
+    #             "Content-Type": "application/json"
+    #     }
 
     def ordered(self, obj):
         """
@@ -275,7 +297,7 @@ class CpqApiHelper:
         self.__tokens['cookies'] = response.cookies
 
         print('Bearer Token -> [SAVED]\n')
-        
+
         print('JWT Token -> [SAVED]\n')
 
         print('X-CSRF Token -> [SAVED]\n')
