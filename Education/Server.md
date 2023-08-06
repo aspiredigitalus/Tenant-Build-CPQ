@@ -49,7 +49,7 @@
 #### 6.1 OS Commands
 Exit VI editor
 ```
-[ESC] -> [SHIFT]: -> WQ
+[ESC] -> [SHIFT]: -> wq
 ```
 
 Access Sudoers File
@@ -58,7 +58,7 @@ sudo visudo
 ```
 Add user to the Wheel Group (root group)
 ```
-
+sudo usermod -aG wheel <username>
 ```
 
 
