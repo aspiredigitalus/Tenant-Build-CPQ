@@ -78,6 +78,11 @@ Restart the Database
 sudo service postgresql-15 restart
 ```
 
+Get Status of Current Server
+```
+sudo service postgresql-15 status
+```
+
 Get .conf location as Linux user
 ```
 sudo -u postgres psql -c 'SHOW config_file'
