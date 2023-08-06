@@ -2,7 +2,7 @@
 ---
 ## Contents
 
-    [1. Hosting](#Hosting)
+    1. [Hosting](#1-Hosting)
 
-### Hosting
+### 1. Hosting
  
