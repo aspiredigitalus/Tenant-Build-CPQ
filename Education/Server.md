@@ -63,6 +63,31 @@ sudo usermod -aG wheel <username>
 
 
 #### 6.2 Postgres Commands
+Start the Database
+```
+sudo systemctl start postgresql-15
+```
+
+Enable on Reboot
+```
+sudo systemctl enable postgresql-15
+```
+
+Restart the Database
+```
+sudo service postgresql-15 restart
+```
+
+Get .conf location as Linux user
+```
+sudo -u postgres psql -c 'SHOW config_file'
+```
+
+Get .conf location as postgres user
+```
+psql -U postgres -c 'SHOW config_file'
+```
+
 
 #### 6.3 Docker Commands
 Pull new SonarQube docker image
@@ -83,3 +108,7 @@ sudo docker run -d --name sonarqube \
 sonarqube
 ```
 
+Show all containers
+```
+sudo docker container ls -a
+```
