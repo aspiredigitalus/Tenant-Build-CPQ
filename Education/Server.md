@@ -51,4 +51,21 @@
 #### 6.2 Postgres Commands
 
 #### 6.3 Docker Commands
+Pull new SonarQube docker image
+```
+docker pull sonarqube
+```
+
+Create new container for SonarQube
+```
+sudo docker run -d --name sonarqube \
+-p 9000:9000 \
+-e SONAR_JDBC_URL=jdbc:postgresql://localhost/sonarqube \
+-e SONAR_JDBC_USERNAME=sonarqube \
+-e SONAR_JDBC_PASSWORD=<password> \
+-v sonarqube_data:/opt/sonarqube/data \
+-v sonarqube_extensions:/opt/sonarqube/extensions \
+-v sonarqube_logs:/opt/sonarqube/logs 
+sonarqube
+```
 
