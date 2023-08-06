@@ -61,6 +61,14 @@ Add user to the Wheel Group (root group)
 sudo usermod -aG wheel <username>
 ```
 
+Rebooting Full System
+    It is best to shut down Databases first
+```
+sudo sync;sync
+sudo systemctl stop postgresql-15
+sudo systemctl stop mysql # MySQL/MariDB -> command not working
+sudo systemctl reboot
+```
 
 #### 6.2 Postgres Commands
 Start the Database
