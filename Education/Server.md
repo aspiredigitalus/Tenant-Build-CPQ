@@ -129,7 +129,7 @@ sudo docker rm <container id>
 ```
 Make container restart automatically
 ```
-docker update --restart <command> <container id>
+sudo docker update --restart <command> <container id>
 ```
 ```
 Commands:
@@ -145,4 +145,9 @@ always	Always restart the container if it stops. If it is manually stopped,
 
 unless-stopped	Similar to always, except that when the container is stopped 
     (manually or otherwise), it is not restarted even after Docker daemon restarts.
+```
+
+Get Docker Host IP
+```
+sudo ip -4 addr show docker0
 ```
