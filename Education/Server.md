@@ -47,6 +47,20 @@
 ### 6. Useful CentOS Linux Commands
 
 #### 6.1 OS Commands
+Exit VI editor
+```
+[ESC] -> [SHIFT]: -> WQ
+```
+
+Access Sudoers File
+```
+sudo visudo
+```
+Add user to the Wheel Group (root group)
+```
+
+```
+
 
 #### 6.2 Postgres Commands
 
@@ -65,7 +79,7 @@ sudo docker run -d --name sonarqube \
 -e SONAR_JDBC_PASSWORD=<password> \
 -v sonarqube_data:/opt/sonarqube/data \
 -v sonarqube_extensions:/opt/sonarqube/extensions \
--v sonarqube_logs:/opt/sonarqube/logs 
+-v sonarqube_logs:/opt/sonarqube/logs \
 sonarqube
 ```
 
