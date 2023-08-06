@@ -4,6 +4,7 @@
 
 [1. Hosting](#1-Hosting)  
 [2. Databases](#2-Databases)  
+[3. Website](#3-Website)
 
 ### 1. Hosting
     - Login: https://162.240.108.85:2087
@@ -15,3 +16,10 @@
 #### MySQL
 
 #### Postgres
+
+### 3. Website
+
+    - Front End: Angular 4
+        - HTML, CSS, Typescript
+    - API: Sprint Boot
+        - JAVA
