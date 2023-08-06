@@ -44,6 +44,19 @@
 
 ### 5. SonarQube
 
+#### 5.1 Saved Settings On Reboot of Server
+```
+sudo nano /etc/sysctl.conf
+
+vm.max_map_count=524288
+fs.file-max=131072
+
+sudo nano /etc/security/limits.conf
+
+ulimit -n 131072
+ulimit -u 8192
+```
+
 ### 6. Useful CentOS Linux Commands
 
 #### 6.1 OS Commands
@@ -61,7 +74,7 @@ Add user to the Wheel Group (root group)
 sudo usermod -aG wheel <username>
 ```
 
-Rebooting Full System
+Rebooting Full System  
     It is best to shut down Databases first
 ```
 sudo sync;sync
