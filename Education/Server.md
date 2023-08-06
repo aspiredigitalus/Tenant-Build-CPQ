@@ -34,5 +34,9 @@
     /usr/bin/sh /home/aspiredigital/cronjob/deploy.sh
 
 #### 4.3 Cron Job
-    Minute	Hour	Day	    Month	Weekday
-    0	    0,12	*	    *	    *
+    - Minute    0
+    - Hour	    0,12
+    - Day	    *
+    - Month	    *
+    - Weekday   *
+
