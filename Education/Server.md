@@ -121,3 +121,9 @@ Show all containers
 ```
 sudo docker container ls -a
 ```
+
+Delete Container
+```
+sudo docker stop <container id>
+sudo docker rm <container id>
+```
