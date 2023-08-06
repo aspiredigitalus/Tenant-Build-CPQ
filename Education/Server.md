@@ -4,7 +4,8 @@
 
 [1. Hosting](#1-Hosting)  
 [2. Databases](#2-Databases)  
-[3. Website](#3-Website)
+[3. Website](#3-Website)  
+[4. CI/CD](#-CI-CD)
 
 ### 1. Hosting
     - Login: https://162.240.108.85:2087
@@ -13,9 +14,9 @@
 
 ### 2. Databases
 
-#### MySQL
+#### 2.1 MySQL
 
-#### Postgres
+#### 2.2 Postgres
 
 ### 3. Website
 
@@ -23,3 +24,15 @@
         - HTML, CSS, Typescript
     - API: Sprint Boot
         - JAVA
+
+### 4. CI/CD
+
+#### 4.1 Repository
+    cd ~/git/aspiredigital
+
+#### 4.2 Shell Scripts
+    /usr/bin/sh /home/aspiredigital/cronjob/deploy.sh
+
+#### 4.3 Cron Job
+    Minute	Hour	Day	    Month	Weekday
+    0	    0,12	*	    *	    *
