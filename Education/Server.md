@@ -5,9 +5,9 @@
 [1. Hosting](#1-Hosting)  
 [2. Databases](#2-Databases)  
 [3. Website](#3-Website)  
-[4. CI/CD](#4-CICD)
-[5. SonarQube](#5-SonarQube)
-[6. Useful CentOS Linux Commands](#6-Useful-CentOS-Linux-Commands)
+[4. CI/CD](#4-CICD)  
+[5. SonarQube](#5-SonarQube)  
+[6. Useful CentOS Linux Commands](#6-Useful-CentOS-Linux-Commands)  
 
 ### 1. Hosting
     - Login: https://162.240.108.85:2087
