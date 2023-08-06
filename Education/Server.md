@@ -88,6 +88,10 @@ Get .conf location as postgres user
 psql -U postgres -c 'SHOW config_file'
 ```
 
+Get pg_hba.conf location as Linux user
+```
+sudo -u postgres psql -t -P format=unaligned -c 'show hba_file';
+```
 
 #### 6.3 Docker Commands
 Pull new SonarQube docker image
