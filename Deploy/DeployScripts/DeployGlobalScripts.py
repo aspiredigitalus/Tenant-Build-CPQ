@@ -63,22 +63,27 @@ class DeployGlobalScripts(DeployScriptInterface):
 
                 # Add product level events to each set()
                 apiEvents = set()
+
                 for apiEvent in apiData['events']:
                     if apiEvent['systemEventId'] not in self.api.systemEvenIds:
                         apiEvents.add(apiEvent['systemEventId'])
                 mainEvents = set()
                 for mainEvent in mainData['events']:
+
                     if mainEvent['systemEventId'] not in self.api.systemEvenIds:
                         mainEvents.add(mainEvent['systemEventId'])
 
                 # Remove events that exist on GIT but not CPQ.
                 # Cannot add an event in this way, will throw error
                 onlyInMain = mainEvents - apiEvents
+
                 mainData['events'] = [e for e in mainData['events']
                                       if e['systemEventId'] not in onlyInMain]
 
                 # append events that exist only on CPQ
                 onlyInApi = apiEvents - mainEvents
+
+
                 for apiEvent in apiData['events']:
                     if apiEvent['systemEventId'] in onlyInApi:
                         mainData['events'].append(apiEvent)

@@ -47,6 +47,7 @@ class CpqApiHelper:
         54,
         56
     ]
+    tableNames = []
 
     def __init__(self, username: str, password: str, host: str):
         """
@@ -118,32 +119,31 @@ class CpqApiHelper:
     # Custom Table APIS
 
     def getAllCustomTables(self):
-
-        headers = self.getHeaderJwt()
+        print("121")
+        headers = self.getCTHeaderJwt()
         headers["Content-Type"] = "application/json"
-        url = self.__host + "/api/custom-table/v1/customTables"
+        headers["accept"] = "*/*"
+        url = self.__host + "api/custom-table/v1/customTables"
         # tables = requests.get(url, headers=headers)
         tables= self.testCallSuccess(
             requests.get,
             url,
             headers=headers
         )
+        print('131')
 
         if tables.status_code == 200:
             tables_data = tables.json()
-            print("All custom tables: " + str(tables_data))
+            return tables_data
         else:
             print(f"Request failed with status code: {tables.status_code}")
 
-    def updateCustomTables(self):
-        data = {
-        "isHidden": False,
-        "auditTrailLevel": "Row"
-    }
+    def updateCustomTables(self, table_name, payload):
+        data = payload
         headers = self.getHeaderJwt()
         headers["Content-Type"] = "application/json"
-        tableName = "test_table_LY"
-        url = self.__host+ f"/api/custom-table/v1/customTables/{tableName}"
+        tableName = table_name
+        url = self.__host+ f"api/custom-table/v1/customTables/{tableName}"
         tables= self.testCallSuccess(
             requests.patch,
             url,
@@ -153,26 +153,11 @@ class CpqApiHelper:
 
         print(tables)
 
-    def addCustomTables(self):
+    def addCustomTables(self, mainData):
         headers = self.getHeaderJwt()
         headers["Content-Type"] = "application/json"
-        data = {
-            "tableName": "test_table_LY",
-            "isHidden": False,
-            "auditTrailLevel": "Row",
-            "columns": [
-                {
-                    "id": 0,
-                    "columnName": "col1",
-                    "dbType": "INT",
-                    "columnSize": 0,
-                    "isNullable": True,
-                    "isProtected": True,
-                    "isSensitive": True
-                }
-            ]
-    }
-        url = self.__host + "/api/custom-table/v1/customTables"
+        data = mainData
+        url = self.__host + "api/custom-table/v1/customTables"
 
         response= self.testCallSuccess(
             requests.post,
@@ -187,10 +172,10 @@ class CpqApiHelper:
         else:
             print(f"Request failed with status code: {response.status_code}")
 
-    def deleteCustomTables(self):
+    def deleteCustomTables(self, name):
         headers = self.getHeaderJwt()
-        tableName="test_table_LY"
-        url = self.__host + f"/api/custom-table/v1/customTables/{tableName}"
+        tableName=name
+        url = self.__host + f"api/custom-table/v1/customTables/{tableName}"
         deleted_table= self.testCallSuccess(
             requests.delete,
             url,
@@ -201,7 +186,9 @@ class CpqApiHelper:
     # UTILITY METHODS
 
     def testCallSuccess(self, func, url, data='', params='', headers=''):
+        print("205" + str(url) + " " + str(data) + " " + str(params) + str(headers))
         response = func(url, data=data, params=params, headers=headers)
+        print("status code " + str(response.status_code))
         if response.status_code == 403:
             self.getTokens()
             if len(str(headers)) > self.__jwtBearerBreakPoint:
@@ -232,13 +219,13 @@ class CpqApiHelper:
         return {
             'Authorization': 'Bearer ' + self.__tokens['jwtToken']
         }
-    # def getCTHeaderJwt(self):
-    #     return {{"Authorization": f"Bearer {self.__tokens['jwtToken']}", "accept": "*/*"}}
-    # def postCTHeaderJwt(self):
-    #     return {"Authorization": f"Bearer {self.__tokens['jwtToken']}",
-    #             "accept": "*/*",
-    #             "Content-Type": "application/json"
-    #     }
+    def getCTHeaderJwt(self):
+        return {"Authorization": f"Bearer {self.__tokens['jwtToken']}", "accept": "*/*"}
+    def postCTHeaderJwt(self):
+        return {"Authorization": f"Bearer {self.__tokens['jwtToken']}",
+                "accept": "*/*",
+                "Content-Type": "application/json"
+        }
 
     def ordered(self, obj):
         """
