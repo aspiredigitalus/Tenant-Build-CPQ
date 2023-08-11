@@ -168,6 +168,17 @@ class CpqApiHelper:
         contentType: bool = False,
         acceptAll: bool = False
     ):
+        """
+        Summary: Standard method for returning 
+        headers with Bearer Token
+
+        Args:
+            contentType (bool, optional): Defaults to False.
+            acceptAll (bool, optional): Defaults to False.
+
+        Returns:
+            (dict): Packaged Header
+        """
         headerResponse = {}
         headerResponse['Authorization'] = \
             'Bearer ' + self.__tokens['jwtToken']
@@ -175,7 +186,7 @@ class CpqApiHelper:
             headerResponse['Content-Type'] = 'application/json'
         if acceptAll:
             headerResponse['accept'] = '*/*'
-        return headerResponse        
+        return headerResponse
 
     def ordered(self, obj):
         """
