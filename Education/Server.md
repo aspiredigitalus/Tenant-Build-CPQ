@@ -146,6 +146,11 @@ Show all containers
 sudo docker container ls -a
 ```
 
+Show Logs (limited amount)
+```
+sudo docker logs -f --tail 500 <containerId>
+```
+
 Delete Container
 ```
 sudo docker stop <container id>
