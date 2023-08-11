@@ -82,7 +82,10 @@ sudo systemctl stop postgresql-15
 sudo systemctl stop mysql # MySQL/MariDB -> command not working
 sudo systemctl reboot
 ```
-
+Adding HTTPS Capability 
+```
+sudo yum install perl-LWP-Protocol-https
+```
 #### 6.2 Postgres Commands
 Start the Database
 ```
