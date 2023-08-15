@@ -51,7 +51,7 @@ class DeployCustomTemplates(DeployScriptInterface):
 
             # Adding the actual template from the path
             with open(mainData['content']) as templateFile:
-                mainData['content'] = templateFile.read()                           
+                mainData['content'] = templateFile.read()
             # checking if the systemid is available in the system.
             if templateSystemId in customTemplateDict:
                 apiData = customTemplateDict[templateSystemId]
@@ -73,7 +73,9 @@ class DeployCustomTemplates(DeployScriptInterface):
                                   {templateSystemId}")
                     except Exception as e:
                         print(str(e))
-                        log.error(f">>CUSTOMTemplate>>ERROR: {templateSystemId}")
+                        log.error(
+                            f">>CUSTOMTemplate>>ERROR: {templateSystemId}"
+                        )
                 else:
                     # This indicates that there is no change.
                     print(f">>CUSTOMTemplates>>IDENTICAL: {templateSystemId}")
