@@ -112,7 +112,54 @@ class CpqApiHelper:
             headers=headers
         )
         return response
+    # Custom Templates APIS
 
+    def getAllCustomTemplates(self):
+        api = "/api/responsiveTemplate/v1/customResponsiveTemplates\
+            ?&$skip=0&$top=1000"
+        url = self.__host + api
+        headers = self.getHeaderBearer()
+        response = self.testCallSuccess(
+            requests.get,
+            url,
+            headers=headers
+        )
+        return response.json()['pagedRecords']
+
+    def updateCustomTemplate(self, id, package):
+        api = '/api/responsiveTemplate/v1/customResponsiveTemplates/' + str(id)
+        url = self.__host + api
+        headers = self.getHeaderBearer(contentType=True)
+        response = self.testCallSuccess(
+            requests.post,
+            url,
+            data=json.dumps(package),
+            headers=headers
+        )
+        return response
+
+    def addCustomTemplate(self, package):
+        api = '/api/responsiveTemplate/v1/customResponsiveTemplates'
+        url = self.__host + api
+        headers = self.getHeaderBearer(contentType=True)
+        response = self.testCallSuccess(
+            requests.post,
+            url,
+            data=json.dumps(package),
+            headers=headers,
+        )
+        return response
+
+    def deleteCustomTemplate(self, id):
+        api = '/api/responsiveTemplate/v1/customResponsiveTemplates' + str(id)
+        url = self.__host + api
+        headers = self.getHeaderBearer()
+        response = self.testCallSuccess(
+            requests.delete,
+            url,
+            headers=headers
+        )
+        return response
     # UTILITY METHODS
 
     def testCallSuccess(self, func, url, data='', params='', headers=''):

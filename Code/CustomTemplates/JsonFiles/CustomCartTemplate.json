@@ -1,0 +1,9 @@
+{
+    "pageId": 3,
+    "templateId": 4,
+    "name": "DavidM_CustomCartPage",
+    "description": "Test custom cart page",
+    "isDefault": false,
+    "content":"Code/CustomTemplates/Cart/DavidM_CustomCartPage.html",
+    "systemId": "DavidM_CustomCartPage_cpq"
+}
