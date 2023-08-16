@@ -2,7 +2,7 @@
 #
 #   Name: DeployCustomTables
 #   Type: Class
-#   Author: Lucas Yepez & David Mehoves
+#   Author: Lucas Yepez
 #   Copyright: Aspire Digital
 #   Purpose: Child Class of DeployScriptInterface, syncs repository
 #   and tenant CustomTable, with optional delete.
@@ -35,8 +35,8 @@ class DeployCustomTables(DeployScriptInterface):
         # Get dict for All Custom Tables, save by SystemID
 
         customTableDict = {}
-        allcustomTables = self.api.getAllCustomTables()
-        for table in allcustomTables["pagedRecords"]:
+        allCustomTables = self.api.getAllCustomTables()
+        for table in allcustomTables:
             customTableDict[table['tableName']] = table
         pathToJsonFiles = "Code/CustomTables/"
         filter = '*.json'
@@ -47,33 +47,15 @@ class DeployCustomTables(DeployScriptInterface):
                 mainData = json.load(f)
             tableName = mainData['tableName']
 
-
             # Check if script shares systemId
             if tableName in customTableDict:
 
                 apiData = customTableDict[tableName]
 
-                # Add product level events to each set()
-                api = set()
-                mainTableNames = set()
-                apiTableNames = set()
-                # for apiEvent in apiData['events']:
-                #     if apiEvent['systemEventId'] not in self.api.systemEvenIds:
-                #         apiEvents.add(apiEvent['systemEventId'])
-                # mainEvents = set()
-                # for mainEvent in mainData['events']:
-                #     if mainEvent['systemEventId'] not in self.api.systemEvenIds:
-                #         mainEvents.add(mainEvent['systemEventId'])
-                if tableName not in self.api.tableNames:
-                        mainTableNames.add(tableName)
 
-                # Remove events that exist on GIT but not CPQ.
-                # Cannot add an event in this way, will throw error
                 onlyInMain = mainTableNames - apiTableNames
                 if tableName not in onlyInMain:
                     mainData['tableName'] = [tableName ]
-
-
 
                 # append events that exist only on CPQ
 

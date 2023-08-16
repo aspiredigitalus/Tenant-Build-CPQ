@@ -2,7 +2,7 @@
 #
 #   Name: DeployUtilities
 #   Type: Class
-#   Author: Lucas Yepez & David Mehoves
+#   Author: Aspire Dev Team
 #   Copyright: Aspire Digital
 #   Purpose: A Class that holds all crud operation API calls
 #           and other useful methods for sorting data.
@@ -47,7 +47,6 @@ class CpqApiHelper:
         54,
         56
     ]
-    tableNames = []
 
     def __init__(self, username: str, password: str, host: str):
         """
@@ -119,8 +118,7 @@ class CpqApiHelper:
     # Custom Table APIS
 
     def getAllCustomTables(self):
-        print("121")
-        headers = self.getCTHeaderJwt()
+        headers = self.getHeaderJwt()
         headers["Content-Type"] = "application/json"
         headers["accept"] = "*/*"
         url = self.__host + "api/custom-table/v1/customTables"
@@ -130,13 +128,10 @@ class CpqApiHelper:
             url,
             headers=headers
         )
-        print('131')
 
         if tables.status_code == 200:
             tables_data = tables.json()
-            return tables_data
-        else:
-            print(f"Request failed with status code: {tables.status_code}")
+            return tables_data["pagedRecords"]
 
     def updateCustomTables(self, table_name, payload):
         data = payload
@@ -151,7 +146,7 @@ class CpqApiHelper:
             data=json.dumps(data)
         )
 
-        print(tables)
+        return tables
 
     def addCustomTables(self, mainData):
         headers = self.getHeaderJwt()
@@ -169,8 +164,7 @@ class CpqApiHelper:
         if response.status_code == 201:
             response_data = response.json()
             print("Response:", response_data)
-        else:
-            print(f"Request failed with status code: {response.status_code}")
+            return response_data
 
     def deleteCustomTables(self, name):
         headers = self.getHeaderJwt()
@@ -181,14 +175,11 @@ class CpqApiHelper:
             url,
             headers=headers
         )
-        print("deleted table " + str(deleted_table))
 
     # UTILITY METHODS
 
     def testCallSuccess(self, func, url, data='', params='', headers=''):
-        print("205" + str(url) + " " + str(data) + " " + str(params) + str(headers))
         response = func(url, data=data, params=params, headers=headers)
-        print("status code " + str(response.status_code))
         if response.status_code == 403:
             self.getTokens()
             if len(str(headers)) > self.__jwtBearerBreakPoint:
@@ -212,19 +203,14 @@ class CpqApiHelper:
 
     def getHeaderBearer(self):
         return {
-            'Authorization': 'Bearer ' + self.__tokens['bearerToken']
+            'Authorization': 'Bearer ' + self.__tokens['bearerToken'],
+             "accept": "/"
         }
 
     def getHeaderJwt(self):
         return {
-            'Authorization': 'Bearer ' + self.__tokens['jwtToken']
-        }
-    def getCTHeaderJwt(self):
-        return {"Authorization": f"Bearer {self.__tokens['jwtToken']}", "accept": "*/*"}
-    def postCTHeaderJwt(self):
-        return {"Authorization": f"Bearer {self.__tokens['jwtToken']}",
-                "accept": "*/*",
-                "Content-Type": "application/json"
+            'Authorization': 'Bearer ' + self.__tokens['jwtToken'],
+            "accept": "/"
         }
 
     def ordered(self, obj):
@@ -253,8 +239,6 @@ class CpqApiHelper:
 
         log.info("[API Login Flow - Getting Tokens]")
 
-
-        # Get Bearer Tokens
         api = "/basic/api/token"
         url = self.__host + api
         body = """grant_type=password&username={}&password={}""".format(
