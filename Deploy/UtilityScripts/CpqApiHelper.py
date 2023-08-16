@@ -81,8 +81,7 @@ class CpqApiHelper:
     def updateGlobalScript(self, id, package):
         api = "/api/script/v1/globalscripts/" + str(id)
         url = self.__host + api
-        headers = self.getHeaderBearer()
-        headers['Content-Type'] = 'application/json'
+        headers = self.getHeaderBearer(contentType=True)
         response = self.testCallSuccess(
             requests.put,
             url,
@@ -94,8 +93,7 @@ class CpqApiHelper:
     def addGlobalScript(self, package):
         api = "/api/script/v1/globalscripts"
         url = self.__host + api
-        headers = self.getHeaderBearer()
-        headers['Content-Type'] = 'application/json'
+        headers = self.getHeaderBearer(contentType=True)
         response = self.testCallSuccess(
             requests.post,
             url,
@@ -201,22 +199,55 @@ class CpqApiHelper:
 
         return response
 
-    def getHeaderBearer(self):
-        return {
-            'Authorization': 'Bearer ' + self.__tokens['bearerToken']
-        }
+    def getHeaderBearer(
+        self,
+        contentType: bool = False,
+        acceptAll: bool = False
+    ):
+        """
+        Summary: Standard method for returning
+        headers with Bearer Token
 
-    def getHeaderJwt(self):
-        return {
-            'Authorization': 'Bearer ' + self.__tokens['jwtToken']
-        }
-    def getCTHeaderJwt(self):
-        return {{"Authorization": f"Bearer {self.__tokens['jwtToken']}", "accept": "*/*"}}
-    def postCTHeaderJwt(self):
-        return {"Authorization": f"Bearer {self.__tokens['jwtToken']}",
-                "accept": "*/*",
-                "Content-Type": "application/json"
-        }
+        Args:
+            contentType (bool, optional): Defaults to False.
+            acceptAll (bool, optional): Defaults to False.
+
+        Returns:
+            (dict): Packaged Header
+        """
+        headerResponse = {}
+        headerResponse['Authorization'] = \
+            'Bearer ' + self.__tokens['bearerToken']
+        if contentType:
+            headerResponse['Content-Type'] = 'application/json'
+        if acceptAll:
+            headerResponse['accept'] = '*/*'
+        return headerResponse
+
+    def getHeaderJwt(
+        self,
+        contentType: bool = False,
+        acceptAll: bool = False
+    ):
+        """
+        Summary: Standard method for returning
+        headers with Bearer Token
+
+        Args:
+            contentType (bool, optional): Defaults to False.
+            acceptAll (bool, optional): Defaults to False.
+
+        Returns:
+            (dict): Packaged Header
+        """
+        headerResponse = {}
+        headerResponse['Authorization'] = \
+            'Bearer ' + self.__tokens['jwtToken']
+        if contentType:
+            headerResponse['Content-Type'] = 'application/json'
+        if acceptAll:
+            headerResponse['accept'] = '*/*'
+        return headerResponse
 
     def ordered(self, obj):
         """
@@ -275,7 +306,7 @@ class CpqApiHelper:
         self.__tokens['cookies'] = response.cookies
 
         print('Bearer Token -> [SAVED]\n')
-        
+
         print('JWT Token -> [SAVED]\n')
 
         print('X-CSRF Token -> [SAVED]\n')
