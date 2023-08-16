@@ -231,7 +231,7 @@ class CpqApiHelper:
     ):
         """
         Summary: Standard method for returning
-        headers with Bearer Token
+        headers with JWT
 
         Args:
             contentType (bool, optional): Defaults to False.
