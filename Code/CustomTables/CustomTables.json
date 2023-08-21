@@ -1,7 +1,7 @@
 {
     "tableName": "DAVID_TEST_TABLE",
     "isHidden": false,
-    "auditTrailLevel": "None",
+    "auditTrailLevel": "string",
     "columns": [{
             "columnName": "col1",
             "dbType": "NVARCHAR",

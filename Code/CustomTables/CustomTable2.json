@@ -1,9 +1,9 @@
 {
-    "tableName": "dddE",
+    "tableName": "NewTest_TEST_TABLE",
     "isHidden": false,
     "auditTrailLevel": "None",
     "columns": [{
-            "columnName": "col1",
+            "columnName": "col122",
             "dbType": "NVARCHAR",
             "columnSize": 250,
             "isNullable": true,

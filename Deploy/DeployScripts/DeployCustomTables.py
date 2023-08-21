@@ -36,7 +36,7 @@ class DeployCustomTables(DeployScriptInterface):
 
         customTableDict = {}
         allCustomTables = self.api.getAllCustomTables()
-        for table in allcustomTables:
+        for table in allCustomTables:
             customTableDict[table['tableName']] = table
         pathToJsonFiles = "Code/CustomTables/"
         filter = '*.json'
@@ -53,25 +53,9 @@ class DeployCustomTables(DeployScriptInterface):
                 apiData = customTableDict[tableName]
 
 
-                onlyInMain = mainTableNames - apiTableNames
-                if tableName not in onlyInMain:
-                    mainData['tableName'] = [tableName ]
-
-                # append events that exist only on CPQ
-
-                onlyInApi = apiTableNames - mainTableNames
-                if tableName in onlyInApi:
-                    mainData['tableName'] = tableName
-
-                # if the event exists in both environments, do nothing.
-
-                mainData['tableName'] = \
-                    apiData['tableName']
-
                 # delete unnecessary fields for comparison
                 del (apiData["modifiedBy"])
                 del (apiData["modifiedAt"])
-
 
                 # Update if the json is different in CPQ
                 if self.api.ordered(apiData) != self.api.ordered(mainData):
@@ -82,6 +66,7 @@ class DeployCustomTables(DeployScriptInterface):
                             mainData
                         )
                         log.info(f">>Custom Table>>UPDATE: {tableName}")
+                        print(f">>Custom Table>>UPDATE: {tableName}")
                     except Exception as e:
                         log.error(f">>Custom Table>>UPDATE: {tableName}")
                 else:
@@ -89,14 +74,10 @@ class DeployCustomTables(DeployScriptInterface):
                 del customTableDict[tableName]
 
             else:
-                # This means that the systemId was not found in CPQ
+                # This means that the table name was not found in CPQ
                 # We will add the code to CPQ
                 try:
-                    # Remove events that are not system level
-                    # Cannot create a global script with product level events
-                    if tableName in self.api.tableNames:
-                        mainData['tableName'] = [tableName]
-
+                    mainData['tableName'] = tableName
                     self.api.addCustomTables(mainData)
                     print(f">>Custom Tables>>ADD: {tableName}")
                     log.info(f">>Custom Tables>>ADD: {tableName}")

@@ -151,7 +151,6 @@ class CpqApiHelper:
         headers["Content-Type"] = "application/json"
         data = mainData
         url = self.__host + "api/custom-table/v1/customTables"
-
         response= self.testCallSuccess(
             requests.post,
             url,
