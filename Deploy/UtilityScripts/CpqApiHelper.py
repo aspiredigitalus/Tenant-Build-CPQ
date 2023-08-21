@@ -2,9 +2,9 @@
 #
 #   Name: DeployUtilities
 #   Type: Class
-#   Author: Lucas Yepez & David Mehoves
+#   Author: Aspire Dev Team
 #   Copyright: Aspire Digital
-#   Purpose: A Class that holds all crud operation API calls 
+#   Purpose: A Class that holds all crud operation API calls
 #           and other useful methods for sorting data.
 #
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -50,7 +50,7 @@ class CpqApiHelper:
 
     def __init__(self, username: str, password: str, host: str):
         """
-        Description: Constructor to take in auth data 
+        Description: Constructor to take in auth data
                     and save to private variables
         Parameters:
                     (str): username
@@ -113,6 +113,66 @@ class CpqApiHelper:
         )
         return response
 
+    # Custom Table APIS
+
+    def getAllCustomTables(self):
+        headers = self.getHeaderJwt()
+        headers["Content-Type"] = "application/json"
+        headers["accept"] = "*/*"
+        url = self.__host + "api/custom-table/v1/customTables"
+        # tables = requests.get(url, headers=headers)
+        tables= self.testCallSuccess(
+            requests.get,
+            url,
+            headers=headers
+        )
+
+        if tables.status_code == 200:
+            tables_data = tables.json()
+            return tables_data["pagedRecords"]
+
+    def updateCustomTables(self, table_name, payload):
+        data = payload
+        headers = self.getHeaderJwt()
+        headers["Content-Type"] = "application/json"
+        tableName = table_name
+        url = self.__host+ f"api/custom-table/v1/customTables/{tableName}"
+        tables= self.testCallSuccess(
+            requests.patch,
+            url,
+            headers=headers,
+            data=json.dumps(data)
+        )
+
+        return tables
+
+    def addCustomTables(self, mainData):
+        headers = self.getHeaderJwt()
+        headers["Content-Type"] = "application/json"
+        data = mainData
+        url = self.__host + "api/custom-table/v1/customTables"
+        response= self.testCallSuccess(
+            requests.post,
+            url,
+            headers=headers,
+            data=json.dumps(data)
+        )
+
+        if response.status_code == 201:
+            response_data = response.json()
+            print("Response:", response_data)
+            return response_data
+
+    def deleteCustomTables(self, name):
+        headers = self.getHeaderJwt()
+        tableName=name
+        url = self.__host + f"api/custom-table/v1/customTables/{tableName}"
+        deleted_table= self.testCallSuccess(
+            requests.delete,
+            url,
+            headers=headers
+        )
+
     # UTILITY METHODS
 
     def testCallSuccess(self, func, url, data='', params='', headers=''):
@@ -144,7 +204,7 @@ class CpqApiHelper:
         acceptAll: bool = False
     ):
         """
-        Summary: Standard method for returning 
+        Summary: Standard method for returning
         headers with Bearer Token
 
         Args:
@@ -169,8 +229,8 @@ class CpqApiHelper:
         acceptAll: bool = False
     ):
         """
-        Summary: Standard method for returning 
-        headers with Bearer Token
+        Summary: Standard method for returning
+        headers with JWT
 
         Args:
             contentType (bool, optional): Defaults to False.
@@ -213,9 +273,7 @@ class CpqApiHelper:
         """
 
         log.info("[API Login Flow - Getting Tokens]")
-        
-        
-        # Get Bearer Tokens
+
         api = "/basic/api/token"
         url = self.__host + api
         body = """grant_type=password&username={}&password={}""".format(
@@ -245,7 +303,7 @@ class CpqApiHelper:
         self.__tokens['cookies'] = response.cookies
 
         print('Bearer Token -> [SAVED]\n')
-        
+
         print('JWT Token -> [SAVED]\n')
 
         print('X-CSRF Token -> [SAVED]\n')

@@ -1,0 +1,26 @@
+{
+    "tableName": "newish_table_LY",
+    "isHidden": false,
+    "auditTrailLevel": "None",
+    "columns": [{
+            "columnName": "col1",
+            "dbType": "NVARCHAR",
+            "columnSize": 250,
+            "isNullable": true,
+            "isProtected": false,
+            "isSensitive": false
+        },
+        {
+            "columnName": "col2",
+            "dbType": "NVARCHAR",
+            "columnSize": 250,
+            "isNullable": true,
+            "isProtected": false,
+            "isSensitive": false
+        },
+        {
+            "columnName": "col3",
+            "dbType": "INT"
+        }
+    ]
+}

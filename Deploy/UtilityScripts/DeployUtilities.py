@@ -27,5 +27,4 @@ class DeployUtilities:
         except Exception:
             print('Error accessing key: {}'.format(envKey))
             envInput = None
-
         return True if envInput == "True" else False
