@@ -1,0 +1,30 @@
+{
+
+    "categories": [
+        { "id": 57, "name": "test_LY", "children": [] }
+    ],
+    "productTypeId": 34,
+    "name": "new_ly",
+    "partNumber": "test",
+    "type": "Service",
+    "category": "test_LY",
+    "permissions": "Visible to everyone",
+    "displayType": "Simple Product",
+    "modifiedDate": "23/08/23",
+    "modifiedBy": "Lucas Yepez",
+    "active": true,
+    "systemId": "new_ly_cpq",
+    "description": "test",
+    "isSimple": false,
+    "isProductAlias": false,
+    "isSapProduct": false,
+    "isSubscription": false,
+    "isSbProduct": false,
+    "isSyncedFromBackOffice": false,
+    "orderItemType": 0,
+    "aliasParentProductId": "None",
+    "aliasOf": "",
+    "unitOfMeasure": "",
+    "version": { "id": 32, "description": "", "productVersionName": "", "versionNumber": 1, "isActive": true },
+    "configurationType": 0
+}
