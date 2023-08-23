@@ -4,7 +4,7 @@
 #   Type: Class
 #   Author: Lucas Yepez & David Mehoves
 #   Copyright: Aspire Digital
-#   Purpose: A Class that holds all crud operation API calls 
+#   Purpose: A Class that holds all crud operation API calls
 #           and other useful methods for sorting data.
 #
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -50,7 +50,7 @@ class CpqApiHelper:
 
     def __init__(self, username: str, password: str, host: str):
         """
-        Description: Constructor to take in auth data 
+        Description: Constructor to take in auth data
                     and save to private variables
         Parameters:
                     (str): username
@@ -115,8 +115,89 @@ class CpqApiHelper:
 
     # UTILITY METHODS
 
+
+    def getAllProducts(self):
+
+        api = "/setup/api/v1/admin/products/"
+        url = self.__host + api
+        headers = self.getHeaderBearer()
+        response = self.testCallSuccess(
+            requests.get,
+            url,
+            headers=headers
+        )
+        return response.json()['pagedRecords']
+
+    def addProduct(self, package):
+        api = "/setup/api/v1/admin/products"
+        url = self.__host + api
+        headers = self.getHeaderBearer(contentType=True)
+        print('package ' + str(package))
+        response = self.testCallSuccess(
+            requests.post,
+            url,
+            data=json.dumps(package),
+            headers=headers
+        )
+        return response
+
+
+    def getAllCategories(self):
+        api = "/setup/api/v1/admin/categories"
+        url = self.__host + api
+        headers = self.getHeaderBearer()
+        response = self.testCallSuccess(
+            requests.get,
+            url,
+            headers=headers
+        )
+
+        return response.json()['pagedRecords']
+
+
+    def getAllProdTypes(self):
+
+        api = "/setup/api/v1/admin/products/Service/SystemId"
+        url = self.__host + api
+        headers = self.getHeaderBearer()
+
+        response = self.testCallSuccess(
+            requests.get,
+            url,
+            headers=headers
+        )
+
+
+        return response.json()['pagedRecords']
+    def updateProducts(self, id, package):
+        api = "setup/api/v1/admin/products/" + str(id)
+        url = self.__host + api
+        headers = self.getHeaderBearer(contentType=True)
+
+        response = self.testCallSuccess(
+            requests.put,
+            url,
+            data=json.dumps(package),
+            headers=headers
+        )
+        return response
+
+    def deleteProducts(self, id):
+        api = "/setup/api/v1/admin/products/" + str(id)
+        url = self.__host + api
+        headers = self.getHeaderBearer()
+        response = self.testCallSuccess(
+            requests.delete,
+            url,
+            headers=headers
+        )
+        return response
+
     def testCallSuccess(self, func, url, data='', params='', headers=''):
+        print('res 187')
         response = func(url, data=data, params=params, headers=headers)
+        print('res 189' + str(response.status_code))
+        print('url ' + str(url) + '\ndata ' + str(data) + '\nparams ' + str(params) + '\nheaders ' + str(headers))
         if response.status_code == 403:
             self.getTokens()
             if len(str(headers)) > self.__jwtBearerBreakPoint:
@@ -144,7 +225,7 @@ class CpqApiHelper:
         acceptAll: bool = False
     ):
         """
-        Summary: Standard method for returning 
+        Summary: Standard method for returning
         headers with Bearer Token
 
         Args:
@@ -169,7 +250,7 @@ class CpqApiHelper:
         acceptAll: bool = False
     ):
         """
-        Summary: Standard method for returning 
+        Summary: Standard method for returning
         headers with Bearer Token
 
         Args:
@@ -213,8 +294,8 @@ class CpqApiHelper:
         """
 
         log.info("[API Login Flow - Getting Tokens]")
-        
-        
+
+
         # Get Bearer Tokens
         api = "/basic/api/token"
         url = self.__host + api
@@ -245,7 +326,7 @@ class CpqApiHelper:
         self.__tokens['cookies'] = response.cookies
 
         print('Bearer Token -> [SAVED]\n')
-        
+
         print('JWT Token -> [SAVED]\n')
 
         print('X-CSRF Token -> [SAVED]\n')
