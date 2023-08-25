@@ -12,11 +12,12 @@ from UtilityScripts.DeployUtilities import DeployUtilities as util
 from DeployScripts.DeployGlobalScripts import DeployGlobalScripts
 from DeployScripts.DeployCustomTemplates import DeployCustomTemplates
 from DeployScripts.DeployUserTypes import DeployUserTypes
+from DeployScripts.DeployQuoteItemCustomFields import DeployQuoteItemCustomFields
 from UtilityScripts.CpqApiHelper import CpqApiHelper
 from dotenv import load_dotenv
 from UtilityScripts.DeployLogger import Log as log
 from pathlib import Path
-import os
+import os15
 import sys
 
 
@@ -91,6 +92,8 @@ def populateDeployScripts():
 
     if util.transBoolEnv('USER_TYPES_RUN'):
         deployScripts.append(DeployUserTypes)
+    if util.transBoolEnv('QUOTE_ITEM_CUSTOM_FIELDS_RUN'):
+        deployScripts.append(DeployQuoteItemCustomFields)
 
     return deployScripts
 
