@@ -78,7 +78,7 @@ class CpqApiHelper:
             params=params,
             headers=headers
         )
-        return response.json()
+        return response.json()["pagedRecords"]
 
     def updateGlobalScript(self, id, package):
         api = "/api/script/v1/globalscripts/" + str(id)

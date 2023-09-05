@@ -44,12 +44,13 @@ class DeployGlobalScripts(DeployScriptInterface):
         while returnedCount == top:
 
             allGlobalScripts = self.api.getAllGlobalSCripts(top, skip)
-            returnedCount = len(allGlobalScripts['pagedRecords'])
+            returnedCount = len(allGlobalScripts)
 
             skip += top
 
             for script in allGlobalScripts:
-                globalScriptDict[script['scriptDefinition']['systemId']] = script
+                globalScriptDict[script['scriptDefinition']['systemId']] \
+                    = script
 
         pathToJsonFiles = "Code/GlobalScripts/"
 
