@@ -116,14 +116,15 @@ class CpqApiHelper:
         return response
     # Custom Templates APIS
 
-    def getAllCustomTemplates(self):
+    def getAllCustomTemplates(self, top=10, skip=0):
         api = "/api/responsiveTemplate/v1/customResponsiveTemplates"
-        odata_query = "?&$skip=0&$top=1000"
-        url = self.__host + api + odata_query
+        params = f"?$top={top}&$skip={skip}"
+        url = self.__host + api
         headers = self.getHeaderBearer()
         response = self.testCallSuccess(
             requests.get,
             url,
+            params=params,
             headers=headers
         )
         return response.json()['pagedRecords']
@@ -153,7 +154,7 @@ class CpqApiHelper:
         return response
 
     def deleteCustomTemplate(self, id):
-        api = '/api/responsiveTemplate/v1/customResponsiveTemplates' + str(id)
+        api = '/api/responsiveTemplate/v1/customResponsiveTemplates/' + str(id)
         url = self.__host + api
         headers = self.getHeaderBearer()
         response = self.testCallSuccess(
@@ -166,7 +167,6 @@ class CpqApiHelper:
 
     def testCallSuccess(self, func, url, data='', params='', headers=''):
         response = func(url, data=data, params=params, headers=headers)
-        print(response)
         if response.status_code == 403:
             self.getTokens()
             if len(str(headers)) > self.__jwtBearerBreakPoint:

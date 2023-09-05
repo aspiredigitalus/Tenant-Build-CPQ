@@ -32,13 +32,22 @@ class DeployCustomTemplates(DeployScriptInterface):
         syncs CPQ tenant to repository.
         Parameters: None
         """
-        print('inside the run block!')
+        # creating a dict to store all custom template by SystemID
         customTemplateDict = {}
-        allCustomTemplates = self.api.getAllCustomTemplates()
-        print('here1')
+        top = 10
+        skip = 0
 
-        for template in allCustomTemplates:
-            customTemplateDict[template['systemId']] = template
+        # Looping through paged records of all templates
+        returnedCount = 10
+        while returnedCount == top:
+
+            allCustomTemplates = self.api.getAllCustomTemplates(top, skip)
+            returnedCount = len(allCustomTemplates)
+
+            skip += top
+
+            for template in allCustomTemplates:
+                customTemplateDict[template['systemId']] = template
 
         pathToJsonFiles = "Code/CustomTemplates/JsonFiles"
         filter = '/*.json'
