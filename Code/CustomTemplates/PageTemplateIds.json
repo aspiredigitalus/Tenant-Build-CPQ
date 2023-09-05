@@ -1,0 +1,624 @@
+{
+    "systemPageIds": [
+        {
+            "responsivePageId": 1,
+            "pageName": "ApprovalHistory",
+            "templates": [
+                {
+                    "id": 1,
+                    "name": "ApprovalHistoryPage"
+                },
+                {
+                    "id": 2,
+                    "name": "Editors/DelegatedApprovers"
+                }
+            ]
+        },
+        {
+            "responsivePageId": 2,
+            "pageName": "Approvals",
+            "templates": [
+                {
+                    "id": 3,
+                    "name": "ApprovalsPage"
+                }
+            ]
+        },
+        {
+            "responsivePageId": 3,
+            "pageName": "Cart",
+            "templates": [
+                {
+                    "id": 4,
+                    "name": "CartPage"
+                },
+                {
+                    "id": 5,
+                    "name": "CustomFieldsPage"
+                },
+                {
+                    "id": 7,
+                    "name": "OrderSummaryPage"
+                },
+                {
+                    "id": 8,
+                    "name": "Sections/CartActions"
+                },
+                {
+                    "id": 9,
+                    "name": "Sections/Costs"
+                },
+                {
+                    "id": 10,
+                    "name": "Sections/CustomFields"
+                },
+                {
+                    "id": 11,
+                    "name": "Sections/Discounts"
+                },
+                {
+                    "id": 12,
+                    "name": "Sections/Items"
+                },
+                {
+                    "id": 13,
+                    "name": "Sections/ItemsTable"
+                },
+                {
+                    "id": 14,
+                    "name": "Sections/Notifications"
+                },
+                {
+                    "id": 15,
+                    "name": "Sections/TotalSummary"
+                },
+                {
+                    "id": 16,
+                    "name": "Sections/Proposal"
+                },
+                {
+                    "id": 17,
+                    "name": "Sections/QuoteInfo"
+                },
+                {
+                    "id": 18,
+                    "name": "Sections/SubTotals"
+                },
+                {
+                    "id": 19,
+                    "name": "Sections/Tabs"
+                },
+                {
+                    "id": 20,
+                    "name": "Sections/Totals"
+                },
+                {
+                    "id": 21,
+                    "name": "Templates/ActionsTemplate"
+                },
+                {
+                    "id": 22,
+                    "name": "Templates/ApprovalTemplate"
+                },
+                {
+                    "id": 23,
+                    "name": "Templates/CartCustomFieldTemplates"
+                },
+                {
+                    "id": 24,
+                    "name": "Templates/CellTemplates"
+                },
+                {
+                    "id": 25,
+                    "name": "Templates/QuickAddTemplate"
+                },
+                {
+                    "id": 26,
+                    "name": "Templates/TotalsTemplate"
+                },
+                {
+                    "id": 116,
+                    "name": "Dialogs/PromotionDialogTemplate"
+                },
+                {
+                    "id": 117,
+                    "name": "Sections/Promotions"
+                },
+                {
+                    "id": 133,
+                    "name": "Templates/CartTableTemplate"
+                },
+                {
+                    "id": 135,
+                    "name": "DealViewPage"
+                },
+                {
+                    "id": 136,
+                    "name": "TeamsPage"
+                },
+                {
+                    "id": 138,
+                    "name": "Dialogs/CustomerFeedbackDialogTemplate"
+                },
+                {
+                    "id": 139,
+                    "name": "Templates/CartTableCellTemplates"
+                },
+                {
+                    "id": 140,
+                    "name": "InvolvedPartiesPage"
+                },
+                {
+                    "id": 142,
+                    "name": "Sections/SubscriptionItemsTable"
+                },
+                {
+                    "id": 143,
+                    "name": "Sections/Assets"
+                },
+                {
+                    "id": 144,
+                    "name": "Templates/SubscriptionContractTemplate"
+                }
+            ]
+        },
+        {
+            "responsivePageId": 4,
+            "pageName": "CartList",
+            "templates": [
+                {
+                    "id": 27,
+                    "name": "CartListPage"
+                },
+                {
+                    "id": 28,
+                    "name": "Grid"
+                },
+                {
+                    "id": 29,
+                    "name": "Dialogs/ReassignCartDialogTemplate"
+                },
+                {
+                    "id": 30,
+                    "name": "Editors/AdditionalFieldTemplate/AdditionalFieldDateIntervalTemplate"
+                },
+                {
+                    "id": 31,
+                    "name": "Editors/AdditionalFieldTemplate/AdditionalFieldDatePickerTemplate"
+                },
+                {
+                    "id": 32,
+                    "name": "Editors/AdditionalFieldTemplate/AdditionalFieldNumberIntervalTemplate"
+                },
+                {
+                    "id": 33,
+                    "name": "Editors/AdditionalFieldTemplate/AdditionalFieldTextBoxTemplate"
+                },
+                {
+                    "id": 34,
+                    "name": "Editors/CellTemplate/CellWithActionTemplate"
+                },
+                {
+                    "id": 35,
+                    "name": "Editors/CellTemplate/DatePickerTemplate"
+                },
+                {
+                    "id": 36,
+                    "name": "Editors/CellTemplate/LabelTemplate"
+                },
+                {
+                    "id": 37,
+                    "name": "Editors/CellTemplate/ListBoxTemplate"
+                },
+                {
+                    "id": 38,
+                    "name": "Editors/CellTemplate/TextBoxTemplate"
+                },
+                {
+                    "id": 39,
+                    "name": "Editors/SelectedFilterTemplate/SelectedFilterAdditionalFieldTextTemplate"
+                },
+                {
+                    "id": 40,
+                    "name": "Editors/SelectedFilterTemplate/SelectedFilterDateRangeTemplate"
+                },
+                {
+                    "id": 41,
+                    "name": "Editors/SelectedFilterTemplate/SelectedFilterTextTemplate"
+                }
+            ]
+        },
+        {
+            "responsivePageId": 5,
+            "pageName": "Catalog",
+            "templates": [
+                {
+                    "id": 42,
+                    "name": "CatalogPage"
+                }
+            ]
+        },
+        {
+            "responsivePageId": 6,
+            "pageName": "Configurator",
+            "templates": [
+                {
+                    "id": 43,
+                    "name": "ActionsView"
+                },
+                {
+                    "id": 44,
+                    "name": "AttributeBasedSearchSummaryView"
+                },
+                {
+                    "id": 45,
+                    "name": "BreadcrumbsView"
+                },
+                {
+                    "id": 46,
+                    "name": "ConfiguratorPage"
+                },
+                {
+                    "id": 47,
+                    "name": "ConfiguratorView"
+                },
+                {
+                    "id": 48,
+                    "name": "ResponderView"
+                },
+                {
+                    "id": 49,
+                    "name": "Editors/AttachmentTemplate"
+                },
+                {
+                    "id": 50,
+                    "name": "Editors/AttributeQuantityTemplate"
+                },
+                {
+                    "id": 51,
+                    "name": "Editors/ButtonTemplate"
+                },
+                {
+                    "id": 52,
+                    "name": "Editors/CheckboxTemplate"
+                },
+                {
+                    "id": 53,
+                    "name": "Editors/ConfigurationImportTemplate"
+                },
+                {
+                    "id": 54,
+                    "name": "Editors/DatePickerTemplate"
+                },
+                {
+                    "id": 55,
+                    "name": "Editors/DisplayOnlyTextTemplate"
+                },
+                {
+                    "id": 56,
+                    "name": "Editors/DropDownTemplate"
+                },
+                {
+                    "id": 57,
+                    "name": "Editors/ImageButtonTemplate"
+                },
+                {
+                    "id": 58,
+                    "name": "Editors/LabelTemplate"
+                },
+                {
+                    "id": 59,
+                    "name": "Editors/ListBoxMultiSelectTemplate"
+                },
+                {
+                    "id": 60,
+                    "name": "Editors/ListBoxTemplate"
+                },
+                {
+                    "id": 61,
+                    "name": "Editors/MultilineTextboxTemplate"
+                },
+                {
+                    "id": 62,
+                    "name": "Editors/RadioButtonTemplate"
+                },
+                {
+                    "id": 63,
+                    "name": "Editors/TextBoxTemplate"
+                },
+                {
+                    "id": 64,
+                    "name": "Editors/Container/AddContainerRowModalTemplate"
+                },
+                {
+                    "id": 65,
+                    "name": "Editors/Container/ContainerCheckboxTemplate"
+                },
+                {
+                    "id": 66,
+                    "name": "Editors/Container/ContainerCopyRowModalTemplate"
+                },
+                {
+                    "id": 67,
+                    "name": "Editors/Container/ContainerDatePickerTemplate"
+                },
+                {
+                    "id": 68,
+                    "name": "Editors/Container/ContainerDropDownTemplate"
+                },
+                {
+                    "id": 69,
+                    "name": "Editors/Container/ContainerLabelTemplate"
+                },
+                {
+                    "id": 70,
+                    "name": "Editors/Container/ContainerListBoxTemplate"
+                },
+                {
+                    "id": 71,
+                    "name": "Editors/Container/ContainerMultilineTemplate"
+                },
+                {
+                    "id": 72,
+                    "name": "Editors/Container/ContainerRadioTemplate"
+                },
+                {
+                    "id": 73,
+                    "name": "Editors/Container/ContainerRowSelectorTemplate"
+                },
+                {
+                    "id": 74,
+                    "name": "Editors/Container/ContainerTemplate"
+                },
+                {
+                    "id": 75,
+                    "name": "Editors/Container/ContainerTextBoxTemplate"
+                },
+                {
+                    "id": 76,
+                    "name": "Editors/DrillDown/DrillDownDropDownTemplate"
+                },
+                {
+                    "id": 77,
+                    "name": "Editors/DrillDown/DrillDownImageButtonTemplate"
+                },
+                {
+                    "id": 78,
+                    "name": "Editors/DrillDown/DrillDownRadioButtonTemplate"
+                },
+                {
+                    "id": 79,
+                    "name": "Editors/DrillDown/DrillDownTemplate"
+                },
+                {
+                    "id": 121,
+                    "name": "Tab"
+                },
+                {
+                    "id": 127,
+                    "name": "Editors/Container/ContainerAutocompleteTemplate"
+                },
+                {
+                    "id": 129,
+                    "name": "ResponderForProductView"
+                },
+                {
+                    "id": 141,
+                    "name": "ConfigurationTreeView"
+                }
+            ]
+        },
+        {
+            "responsivePageId": 8,
+            "pageName": "Customers",
+            "templates": [
+                {
+                    "id": 82,
+                    "name": "AddEditCustomer"
+                },
+                {
+                    "id": 83,
+                    "name": "AddressLookup"
+                },
+                {
+                    "id": 84,
+                    "name": "CrmAccountInfo"
+                },
+                {
+                    "id": 85,
+                    "name": "CrmAccounts"
+                },
+                {
+                    "id": 86,
+                    "name": "CrmAccountsTemplate"
+                },
+                {
+                    "id": 87,
+                    "name": "CrmLookup"
+                },
+                {
+                    "id": 88,
+                    "name": "CrmSelectAccountInfo"
+                },
+                {
+                    "id": 89,
+                    "name": "CustomerDataTemplate"
+                },
+                {
+                    "id": 90,
+                    "name": "CustomerLookupTemplate"
+                },
+                {
+                    "id": 91,
+                    "name": "CustomersListTemplate"
+                },
+                {
+                    "id": 92,
+                    "name": "CustomersPage"
+                },
+                {
+                    "id": 93,
+                    "name": "ShippingInfoPage"
+                }
+            ]
+        },
+        {
+            "responsivePageId": 9,
+            "pageName": "Shared",
+            "templates": [
+                {
+                    "id": 94,
+                    "name": "CartSummary"
+                },
+                {
+                    "id": 95,
+                    "name": "ConfirmDialogTemplate"
+                },
+                {
+                    "id": 96,
+                    "name": "GuestUserLoginTemplate"
+                },
+                {
+                    "id": 97,
+                    "name": "IFrameModalTemplate"
+                },
+                {
+                    "id": 98,
+                    "name": "PagerTemplate"
+                },
+                {
+                    "id": 99,
+                    "name": "ResponsiveLayoutFooter"
+                },
+                {
+                    "id": 100,
+                    "name": "ResponsiveLayoutHeader"
+                },
+                {
+                    "id": 101,
+                    "name": "SliderTemplate"
+                },
+                {
+                    "id": 111,
+                    "name": "MainMenu"
+                },
+                {
+                    "id": 112,
+                    "name": "UserMenu"
+                },
+                {
+                    "id": 120,
+                    "name": "NewTemplate"
+                },
+                {
+                    "id": 123,
+                    "name": "CustomScripts"
+                },
+                {
+                    "id": 134,
+                    "name": "Categories"
+                },
+                {
+                    "id": 137,
+                    "name": "RecentlyVisitedObjects"
+                }
+            ]
+        },
+        {
+            "responsivePageId": 10,
+            "pageName": "UserPersonalization",
+            "templates": [
+                {
+                    "id": 102,
+                    "name": "ModifyPassword"
+                },
+                {
+                    "id": 103,
+                    "name": "ModifyPasswordPage"
+                },
+                {
+                    "id": 104,
+                    "name": "ModifyPersonalDetails"
+                },
+                {
+                    "id": 105,
+                    "name": "ModifyPersonalDetailsPage"
+                },
+                {
+                    "id": 106,
+                    "name": "Tabs"
+                },
+                {
+                    "id": 107,
+                    "name": "UserDetails"
+                },
+                {
+                    "id": 108,
+                    "name": "UserDetailsPage"
+                }
+            ]
+        },
+        {
+            "responsivePageId": 11,
+            "pageName": "Favourites",
+            "templates": [
+                {
+                    "id": 109,
+                    "name": "FavoritesPage"
+                },
+                {
+                    "id": 110,
+                    "name": "AddToFavoritesDialogTemplate"
+                }
+            ]
+        },
+        {
+            "responsivePageId": 12,
+            "pageName": "Home",
+            "templates": [
+                {
+                    "id": 113,
+                    "name": "HomePage"
+                }
+            ]
+        },
+        {
+            "responsivePageId": 13,
+            "pageName": "CompareProducts",
+            "templates": [
+                {
+                    "id": 114,
+                    "name": "CompareProductsPage"
+                },
+                {
+                    "id": 115,
+                    "name": "CompareProductsTemplate"
+                }
+            ]
+        },
+        {
+            "responsivePageId": 15,
+            "pageName": "ProductDetails",
+            "templates": [
+                {
+                    "id": 119,
+                    "name": "ProductDetailsPage"
+                },
+                {
+                    "id": 122,
+                    "name": "ProductDetailsTemplate"
+                }
+            ]
+        },
+        {
+            "responsivePageId": 17,
+            "pageName": "Assets",
+            "templates": [
+                {
+                    "id": 128,
+                    "name": "AssetsList"
+                }
+            ]
+        }
+    ]
+}

@@ -4,7 +4,7 @@
 #   Type: Class
 #   Author: Lucas Yepez & David Mehoves
 #   Copyright: Aspire Digital
-#   Purpose: A Class that holds all crud operation API calls 
+#   Purpose: A Class that holds all crud operation API calls
 #           and other useful methods for sorting data.
 #
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -50,7 +50,7 @@ class CpqApiHelper:
 
     def __init__(self, username: str, password: str, host: str):
         """
-        Description: Constructor to take in auth data 
+        Description: Constructor to take in auth data
                     and save to private variables
         Parameters:
                     (str): username
@@ -67,16 +67,18 @@ class CpqApiHelper:
 
     # GLOBAL SCRIPT APIS
 
-    def getAllGlobalSCripts(self):
+    def getAllGlobalSCripts(self, top=10, skip=0):
         api = "/api/script/v1/globalscripts"
         url = self.__host + api
+        params = f"?$top={top}&$skip={skip}"
         headers = self.getHeaderBearer()
         response = self.testCallSuccess(
             requests.get,
             url,
+            params=params,
             headers=headers
         )
-        return response.json()['pagedRecords']
+        return response.json()["pagedRecords"]
 
     def updateGlobalScript(self, id, package):
         api = "/api/script/v1/globalscripts/" + str(id)
@@ -112,7 +114,55 @@ class CpqApiHelper:
             headers=headers
         )
         return response
+    # Custom Templates APIS
 
+    def getAllCustomTemplates(self, top=10, skip=0):
+        api = "/api/responsiveTemplate/v1/customResponsiveTemplates"
+        params = f"?$top={top}&$skip={skip}"
+        url = self.__host + api
+        headers = self.getHeaderBearer()
+        response = self.testCallSuccess(
+            requests.get,
+            url,
+            params=params,
+            headers=headers
+        )
+        return response.json()['pagedRecords']
+
+    def updateCustomTemplate(self, id, package):
+        api = '/api/responsiveTemplate/v1/customResponsiveTemplates/' + str(id)
+        url = self.__host + api
+        headers = self.getHeaderBearer(contentType=True)
+        response = self.testCallSuccess(
+            requests.put,
+            url,
+            data=json.dumps(package),
+            headers=headers
+        )
+        return response
+
+    def addCustomTemplate(self, package):
+        api = '/api/responsiveTemplate/v1/customResponsiveTemplates'
+        url = self.__host + api
+        headers = self.getHeaderBearer(contentType=True)
+        response = self.testCallSuccess(
+            requests.post,
+            url,
+            data=json.dumps(package),
+            headers=headers,
+        )
+        return response
+
+    def deleteCustomTemplate(self, id):
+        api = '/api/responsiveTemplate/v1/customResponsiveTemplates/' + str(id)
+        url = self.__host + api
+        headers = self.getHeaderBearer()
+        response = self.testCallSuccess(
+            requests.delete,
+            url,
+            headers=headers
+        )
+        return response
     # UTILITY METHODS
 
     def testCallSuccess(self, func, url, data='', params='', headers=''):
@@ -144,7 +194,7 @@ class CpqApiHelper:
         acceptAll: bool = False
     ):
         """
-        Summary: Standard method for returning 
+        Summary: Standard method for returning
         headers with Bearer Token
 
         Args:
@@ -169,7 +219,7 @@ class CpqApiHelper:
         acceptAll: bool = False
     ):
         """
-        Summary: Standard method for returning 
+        Summary: Standard method for returning
         headers with Bearer Token
 
         Args:
@@ -211,10 +261,8 @@ class CpqApiHelper:
                     dict.
         Parameters: None
         """
-
         log.info("[API Login Flow - Getting Tokens]")
-        
-        
+
         # Get Bearer Tokens
         api = "/basic/api/token"
         url = self.__host + api
@@ -245,10 +293,9 @@ class CpqApiHelper:
         self.__tokens['cookies'] = response.cookies
 
         print('Bearer Token -> [SAVED]\n')
-        
+
         print('JWT Token -> [SAVED]\n')
 
         print('X-CSRF Token -> [SAVED]\n')
 
         print('Cookies -> [SAVED]\n')
-

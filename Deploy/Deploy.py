@@ -92,7 +92,6 @@ def populateDeployScripts():
     if util.transBoolEnv('USER_TYPES_RUN'):
         deployScripts.append(DeployUserTypes)
 
-
     return deployScripts
 
 

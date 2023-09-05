@@ -36,9 +36,21 @@ class DeployGlobalScripts(DeployScriptInterface):
         # Get dict for All Global Scripts, save by SystemID
 
         globalScriptDict = {}
-        allGlobalScripts = self.api.getAllGlobalSCripts()
-        for script in allGlobalScripts:
-            globalScriptDict[script['scriptDefinition']['systemId']] = script
+        top = 10
+        skip = 0
+
+        # loop to return all records for pager
+        returnedCount = 10
+        while returnedCount == top:
+
+            allGlobalScripts = self.api.getAllGlobalSCripts(top, skip)
+            returnedCount = len(allGlobalScripts)
+
+            skip += top
+
+            for script in allGlobalScripts:
+                globalScriptDict[script['scriptDefinition']['systemId']] \
+                    = script
 
         pathToJsonFiles = "Code/GlobalScripts/"
 
