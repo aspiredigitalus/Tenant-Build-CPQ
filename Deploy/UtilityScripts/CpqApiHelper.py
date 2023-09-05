@@ -4,7 +4,7 @@
 #   Type: Class
 #   Author: Lucas Yepez & David Mehoves
 #   Copyright: Aspire Digital
-#   Purpose: A Class that holds all crud operation API calls 
+#   Purpose: A Class that holds all crud operation API calls
 #           and other useful methods for sorting data.
 #
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -50,7 +50,7 @@ class CpqApiHelper:
 
     def __init__(self, username: str, password: str, host: str):
         """
-        Description: Constructor to take in auth data 
+        Description: Constructor to take in auth data
                     and save to private variables
         Parameters:
                     (str): username
@@ -115,9 +115,9 @@ class CpqApiHelper:
     # Custom Templates APIS
 
     def getAllCustomTemplates(self):
-        api = "/api/responsiveTemplate/v1/customResponsiveTemplates\
-            ?&$skip=0&$top=1000"
-        url = self.__host + api
+        api = "/api/responsiveTemplate/v1/customResponsiveTemplates"
+        odata_query = "?&$skip=0&$top=1000"
+        url = self.__host + api + odata_query
         headers = self.getHeaderBearer()
         response = self.testCallSuccess(
             requests.get,
@@ -131,7 +131,7 @@ class CpqApiHelper:
         url = self.__host + api
         headers = self.getHeaderBearer(contentType=True)
         response = self.testCallSuccess(
-            requests.post,
+            requests.put,
             url,
             data=json.dumps(package),
             headers=headers
@@ -164,6 +164,7 @@ class CpqApiHelper:
 
     def testCallSuccess(self, func, url, data='', params='', headers=''):
         response = func(url, data=data, params=params, headers=headers)
+        print(response)
         if response.status_code == 403:
             self.getTokens()
             if len(str(headers)) > self.__jwtBearerBreakPoint:
@@ -191,7 +192,7 @@ class CpqApiHelper:
         acceptAll: bool = False
     ):
         """
-        Summary: Standard method for returning 
+        Summary: Standard method for returning
         headers with Bearer Token
 
         Args:
@@ -216,7 +217,7 @@ class CpqApiHelper:
         acceptAll: bool = False
     ):
         """
-        Summary: Standard method for returning 
+        Summary: Standard method for returning
         headers with Bearer Token
 
         Args:
@@ -258,10 +259,8 @@ class CpqApiHelper:
                     dict.
         Parameters: None
         """
-
         log.info("[API Login Flow - Getting Tokens]")
-        
-        
+
         # Get Bearer Tokens
         api = "/basic/api/token"
         url = self.__host + api
@@ -292,10 +291,9 @@ class CpqApiHelper:
         self.__tokens['cookies'] = response.cookies
 
         print('Bearer Token -> [SAVED]\n')
-        
+
         print('JWT Token -> [SAVED]\n')
 
         print('X-CSRF Token -> [SAVED]\n')
 
         print('Cookies -> [SAVED]\n')
-

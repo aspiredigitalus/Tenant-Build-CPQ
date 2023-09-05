@@ -1,9 +1,9 @@
 {
     "pageId": 3,
     "templateId": 4,
-    "name": "DavidM_CustomCartPage",
-    "description": "Test custom cart page",
+    "name": "CICD_CustomCartPage",
+    "description": "Test Updated through CI_CD",
     "isDefault": false,
     "content":"Code/CustomTemplates/Cart/DavidM_CustomCartPage.html",
-    "systemId": "DavidM_CustomCartPage_cpq"
+    "systemId": "CICD_CustomCartPage_cpq"
 }
