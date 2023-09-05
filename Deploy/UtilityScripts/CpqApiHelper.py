@@ -67,16 +67,18 @@ class CpqApiHelper:
 
     # GLOBAL SCRIPT APIS
 
-    def getAllGlobalSCripts(self):
+    def getAllGlobalSCripts(self, top=10, skip=0):
         api = "/api/script/v1/globalscripts"
         url = self.__host + api
+        params = f"?$top={top}&$skip={skip}"
         headers = self.getHeaderBearer()
         response = self.testCallSuccess(
             requests.get,
             url,
+            params=params,
             headers=headers
         )
-        return response.json()['pagedRecords']
+        return response.json()
 
     def updateGlobalScript(self, id, package):
         api = "/api/script/v1/globalscripts/" + str(id)
