@@ -113,6 +113,56 @@ class CpqApiHelper:
         )
         return response
 
+
+
+     # QUOTE TABLES APIS
+
+    def getAllQuoteTables(self):
+        api = "/api/quote/v1/quoteTables"
+        url = self.__host + api
+        headers = self.getHeaderBearer()
+        response = self.testCallSuccess(
+            requests.get,
+            url,
+            headers=headers
+        )
+        return response.json()['pagedRecords']
+
+    def updateQuoteTables(self, id, package):
+        api = "/api/quote/v1/quoteTables/" + str(id)
+        url = self.__host + api
+        headers = self.getHeaderBearer(contentType=True)
+        response = self.testCallSuccess(
+            requests.put,
+            url,
+            data=json.dumps(package),
+            headers=headers
+        )
+        return response
+
+    def addQuoteTable(self, package):
+        api = "/api/quote/v1/quoteTables"
+        url = self.__host + api
+        headers = self.getHeaderBearer(contentType=True)
+        response = self.testCallSuccess(
+            requests.post,
+            url,
+            data=json.dumps(package),
+            headers=headers
+        )
+        return response
+
+    def deleteQuoteTable(self, id):
+        api = "/api/quote/v1/quoteTables/" + str(id)
+        url = self.__host + api
+        headers = self.getHeaderBearer()
+        response = self.testCallSuccess(
+            requests.delete,
+            url,
+            headers=headers
+        )
+        return response
+
     # UTILITY METHODS
 
     def testCallSuccess(self, func, url, data='', params='', headers=''):

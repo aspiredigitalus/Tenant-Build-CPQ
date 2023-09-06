@@ -1,0 +1,16 @@
+{
+    "id": 97,
+    "name": "customer_details",
+    "label": "customer details",
+    "rank": 1,
+    "tabs": [
+        50
+    ],
+    "enableSearch": true,
+    "allowExcelUpload": true,
+    "translations": [],
+    "columns": [],
+    "actions": [],
+    "permissions": [],
+    "columnGroups": []
+}

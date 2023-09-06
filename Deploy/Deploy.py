@@ -12,6 +12,7 @@ from UtilityScripts.DeployUtilities import DeployUtilities as util
 from DeployScripts.DeployGlobalScripts import DeployGlobalScripts
 from DeployScripts.DeployCustomTemplates import DeployCustomTemplates
 from DeployScripts.DeployUserTypes import DeployUserTypes
+from DeployScripts.DeployQuoteTables import DeployQuoteTables
 from UtilityScripts.CpqApiHelper import CpqApiHelper
 from dotenv import load_dotenv
 from UtilityScripts.DeployLogger import Log as log
@@ -91,6 +92,9 @@ def populateDeployScripts():
 
     if util.transBoolEnv('USER_TYPES_RUN'):
         deployScripts.append(DeployUserTypes)
+
+    if util.transBoolEnv('QUOTE_TABLES_RUN'):
+        deployScripts.append(DeployQuoteTables)
 
     return deployScripts
 
